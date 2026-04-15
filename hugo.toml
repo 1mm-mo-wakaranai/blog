@@ -1,0 +1,49 @@
+baseURL = "https://example.com/"  # デプロイ後に実際のURLに変更
+languageCode = "ja"
+defaultContentLanguage = "ja"
+title = "ググっても分からなかった初心者へ"
+theme = "PaperMod"
+paginate = 10
+
+[params]
+  env = "production"
+  description = "プログラミングや技術でつまずいた初心者のための解決ノート"
+  author = "ググっても分からなかった初心者へ"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  defaultTheme = "auto"
+
+  [params.homeInfoParams]
+    Title = "ググっても分からなかった初心者へ"
+    Content = "検索しても解決しなかったあの問題、ここで一緒に解決します。"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    lineNos = false
+    style = "monokai"
+
+[menu]
+  [[menu.main]]
+    identifier = "tags"
+    name = "タグ"
+    url = "/tags/"
+    weight = 10
+  [[menu.main]]
+    identifier = "archives"
+    name = "アーカイブ"
+    url = "/archives/"
+    weight = 20
+  [[menu.main]]
+    identifier = "search"
+    name = "検索"
+    url = "/search/"
+    weight = 30
