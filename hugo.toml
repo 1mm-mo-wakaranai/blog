@@ -16,7 +16,22 @@ paginate = 10
   ShowCodeCopyButtons = true
   ShowToc = true
   TocOpen = false
-  defaultTheme = "auto"
+  defaultTheme = "light"
+
+  [params.profileMode]
+    enabled = true
+    title = "ググっても分からなかった初心者へ"
+    subtitle = "検索しても解決しなかったあの問題、ここで一緒に解決します。"
+    imageUrl = ""
+    imageTitle = ""
+    imageWidth = 120
+    imageHeight = 120
+    [[params.profileMode.buttons]]
+      name = "📝 記事を読む"
+      url = "/posts/"
+    [[params.profileMode.buttons]]
+      name = "🔍 検索する"
+      url = "/search/"
 
   [params.homeInfoParams]
     Title = "ググっても分からなかった初心者へ"

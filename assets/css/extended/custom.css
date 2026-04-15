@@ -1,0 +1,166 @@
+/* ========================================
+   ググっても分からなかった初心者へ - カスタムCSS
+   ======================================== */
+
+/* 全体のフォントと行間 */
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* トップページのプロフィール部分 */
+.profile {
+  padding: 3rem 1rem;
+}
+
+.profile .profile_inner h1 {
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.profile .profile_inner .profileMode_subtitle {
+  font-size: 1.05rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* プロフィールのボタン */
+.profile .profile_inner #btn-container {
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.profile .profile_inner #btn-container a {
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #667eea;
+  color: #667eea;
+  background: transparent;
+}
+
+.profile .profile_inner #btn-container a:first-child {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.profile .profile_inner #btn-container a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* 記事カード */
+.post-entry {
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.post-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-color: #667eea;
+}
+
+.post-entry .entry-header h2 {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* タグのスタイル */
+.post-tags a {
+  background: linear-gradient(135deg, #f0f0ff 0%, #f5f0ff 100%);
+  color: #667eea;
+  border-radius: 20px;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.8rem;
+  border: 1px solid #e0e0ff;
+  transition: all 0.2s ease;
+}
+
+.post-tags a:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* 記事本文 */
+.post-content {
+  font-size: 1.02rem;
+}
+
+.post-content h2 {
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
+  color: #333;
+}
+
+.post-content h3 {
+  border-left: 4px solid #764ba2;
+  padding-left: 0.8rem;
+  margin-top: 2rem;
+}
+
+/* コードブロック */
+.post-content pre {
+  border-radius: 10px;
+  margin: 1.2rem 0;
+}
+
+.post-content code:not(pre code) {
+  background: #f0f0ff;
+  color: #667eea;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* 目次 */
+.toc {
+  background: #f8f8ff;
+  border: 1px solid #e8e8f8;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+}
+
+/* ヘッダー */
+.nav {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.logo a {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* フッター */
+.footer {
+  border-top: 2px solid #f0f0f0;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .profile .profile_inner h1 {
+    font-size: 1.4rem;
+  }
+
+  .post-entry {
+    padding: 1.2rem;
+  }
+
+  .post-entry .entry-header h2 {
+    font-size: 1.05rem;
+  }
+}
