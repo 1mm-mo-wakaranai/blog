@@ -1,4 +1,4 @@
-baseURL = "https://example.com/"  # デプロイ後に実際のURLに変更
+baseURL = "https://blog-8lz.pages.dev/"
 languageCode = "ja"
 defaultContentLanguage = "ja"
 title = "ググっても分からなかった初心者へ"
