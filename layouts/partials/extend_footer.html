@@ -1,3 +1,45 @@
+{{ if .IsPage }}
+{{ if .Params.tags }}
+<!-- 関連記事 -->
+<div class="related-posts">
+  <div class="related-header">
+    <span>📚</span>
+    <h3>あわせて読みたい</h3>
+  </div>
+  <div class="related-grid">
+    {{ $currentPage := . }}
+    {{ $related := slice }}
+    {{ range $tag := .Params.tags }}
+      {{ range $page := (index $.Site.Taxonomies.tags ($tag | urlize)).Pages }}
+        {{ if and (ne $page $currentPage) (not (in $related $page)) }}
+          {{ $related = $related | append $page }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ range first 4 $related }}
+    <a href="{{ .Permalink }}" class="related-card">
+      <span class="related-emoji">
+        {{- if eq .Params.tags nil }}📄{{ else }}
+          {{- $tag := index .Params.tags 0 }}
+          {{- if eq $tag "Python" }}🐍
+          {{- else if eq $tag "Git" }}🌿
+          {{- else if eq $tag "CSS" }}🎨
+          {{- else if eq $tag "HTML" }}🎨
+          {{- else if eq $tag "VS Code" }}⚡
+          {{- else if eq $tag "初心者向け" }}🔰
+          {{- else if eq $tag "エラー解決" }}🛠️
+          {{- else if eq $tag "自動化" }}🤖
+          {{- else }}📄{{ end }}
+        {{- end }}
+      </span>
+      <span class="related-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+{{ end }}
+
 <!-- 忍者AdMax 記事下広告 -->
 <div style="text-align: center; margin: 2rem 0;">
   <!-- PC向け横長広告 -->

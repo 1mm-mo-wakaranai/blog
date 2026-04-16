@@ -1,0 +1,95 @@
+{{- define "main" }}
+<div class="layout-with-sidebar">
+
+  <!-- メインコンテンツ -->
+  <article class="post-single">
+    <header class="post-header">
+      {{ partial "breadcrumbs.html" . }}
+      <h1 class="post-title">{{ .Title }}</h1>
+      <div class="post-meta">
+        📅 {{ .Date.Format "2006.01.02" }} · ☕ {{ .ReadingTime }}分で読める
+      </div>
+      {{- if .Params.tags }}
+      <div class="post-tags">
+        {{- range .Params.tags }}
+        <a href="{{ "tags/" | absURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{- end }}
+      </div>
+      {{- end }}
+    </header>
+
+    {{ partial "extend_article.html" . }}
+
+    {{- if .Params.toc | default site.Params.ShowToc }}
+    <aside class="toc">
+      <details {{ if site.Params.TocOpen }} open {{ end }}>
+        <summary>📑 目次</summary>
+        {{ .TableOfContents }}
+      </details>
+    </aside>
+    {{- end }}
+
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+
+    {{- if site.Params.ShowPostNavLinks }}
+    <nav class="paginav">
+      {{- with .PrevInSection }}
+      <a class="prev" href="{{ .Permalink }}">
+        <span class="title">« 前の記事</span>
+        <br>
+        <span>{{ .Title }}</span>
+      </a>
+      {{- end }}
+      {{- with .NextInSection }}
+      <a class="next" href="{{ .Permalink }}">
+        <span class="title">次の記事 »</span>
+        <br>
+        <span>{{ .Title }}</span>
+      </a>
+      {{- end }}
+    </nav>
+    {{- end }}
+
+    {{- if site.Params.ShowShareButtons }}
+    {{ partial "share_icons.html" . }}
+    {{- end }}
+  </article>
+
+  <!-- サイドバー -->
+  <aside class="sidebar">
+    <!-- プロフィール -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">👤 このブログについて</div>
+      <p class="sidebar-profile-text">プログラミングでつまずいた初心者のための解決ノートです。ググっても分からなかったあの問題を、一緒に解決します。</p>
+    </div>
+
+    <!-- カテゴリ -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">🏷️ カテゴリ</div>
+      <div class="sidebar-tags">
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <a href="{{ "tags/" | absURL }}{{ $name | urlize }}/" class="sidebar-tag">
+          {{ $name }} <span class="sidebar-tag-count">{{ len $taxonomy.Pages }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- 新着記事 -->
+    <div class="sidebar-card">
+      <div class="sidebar-card-header">📝 新着記事</div>
+      <ul class="sidebar-recent">
+        {{ $currentPage := . }}
+        {{ range first 5 (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+        <li {{ if eq . $currentPage }}class="current"{{ end }}>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </aside>
+
+</div>
+{{- end }}
