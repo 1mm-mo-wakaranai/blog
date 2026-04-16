@@ -50,3 +50,8 @@ paginate = 10
     name = "検索"
     url = "/search/"
     weight = 30
+  [[menu.main]]
+    identifier = "privacy"
+    name = "プライバシーポリシー"
+    url = "/privacy/"
+    weight = 40
