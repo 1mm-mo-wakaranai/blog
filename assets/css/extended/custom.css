@@ -302,3 +302,154 @@ body {
     border-radius: 16px;
   }
 }
+
+/* ========================================
+   ヒーローバナー
+   ======================================== */
+.hero-banner {
+  background: linear-gradient(135deg, #e8f2fc 0%, #f3eefa 50%, #edf7ee 100%);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 20px rgba(91, 155, 213, 0.08);
+}
+
+.hero-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3em;
+}
+
+.hero-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+/* ========================================
+   カテゴリナビ
+   ======================================== */
+.category-nav {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  min-width: 90px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(91, 155, 213, 0.15);
+  border-color: var(--accent);
+}
+
+.category-card:active {
+  transform: translateY(-1px);
+}
+
+.category-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.category-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* ========================================
+   セクションヘッダー
+   ======================================== */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.section-header h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.section-icon {
+  font-size: 1.3rem;
+}
+
+/* 記事カードの絵文字 */
+.post-entry .entry-header h2 {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+/* 記事メタ情報 */
+.entry-meta {
+  font-size: 0.82rem;
+  color: var(--text-sub);
+}
+
+/* ========================================
+   スマホ対応（追加分）
+   ======================================== */
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 1.8rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  .hero-emoji {
+    font-size: 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.25rem;
+  }
+
+  .category-nav {
+    gap: 0.6rem;
+  }
+
+  .category-card {
+    min-width: 75px;
+    padding: 0.8rem 1rem;
+    border-radius: 14px;
+  }
+
+  .category-icon {
+    font-size: 1.5rem;
+  }
+
+  .category-name {
+    font-size: 0.72rem;
+  }
+}

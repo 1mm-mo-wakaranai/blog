@@ -1,0 +1,86 @@
+{{- define "main" }}
+
+<!-- ヒーローバナー -->
+<div class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-emoji">🔍💡✨</div>
+    <h1 class="hero-title">ググっても分からなかった初心者へ</h1>
+    <p class="hero-subtitle">検索しても解決しなかったあの問題、ここで一緒に解決します。</p>
+  </div>
+</div>
+
+<!-- カテゴリナビ -->
+<div class="category-nav">
+  <a href="/tags/python/" class="category-card">
+    <span class="category-icon">🐍</span>
+    <span class="category-name">Python</span>
+  </a>
+  <a href="/tags/git/" class="category-card">
+    <span class="category-icon">🌿</span>
+    <span class="category-name">Git</span>
+  </a>
+  <a href="/tags/css/" class="category-card">
+    <span class="category-icon">🎨</span>
+    <span class="category-name">CSS</span>
+  </a>
+  <a href="/tags/vs-code/" class="category-card">
+    <span class="category-icon">⚡</span>
+    <span class="category-name">VS Code</span>
+  </a>
+  <a href="/tags/初心者向け/" class="category-card">
+    <span class="category-icon">🔰</span>
+    <span class="category-name">初心者向け</span>
+  </a>
+  <a href="/tags/エラー解決/" class="category-card">
+    <span class="category-icon">🛠️</span>
+    <span class="category-name">エラー解決</span>
+  </a>
+</div>
+
+<!-- 新着記事 -->
+<div class="section-header">
+  <span class="section-icon">📝</span>
+  <h2>新着記事</h2>
+</div>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $paginator := .Paginate $pages }}
+
+{{- range $index, $page := $paginator.Pages }}
+<article class="post-entry">
+  <a href="{{ .Permalink }}">
+    <header class="entry-header">
+      <h2>
+        {{- if eq .Params.tags nil }}📄{{ else }}
+          {{- $tag := index .Params.tags 0 }}
+          {{- if eq $tag "Python" }}🐍
+          {{- else if eq $tag "Git" }}🌿
+          {{- else if eq $tag "CSS" }}🎨
+          {{- else if eq $tag "HTML" }}🎨
+          {{- else if eq $tag "VS Code" }}⚡
+          {{- else if eq $tag "初心者向け" }}🔰
+          {{- else if eq $tag "エラー解決" }}🛠️
+          {{- else if eq $tag "自動化" }}🤖
+          {{- else if eq $tag "開発環境" }}⚡
+          {{- else }}📄{{ end }}
+        {{- end }}
+        {{- .Title }}
+      </h2>
+    </header>
+    {{- if (ne (.Param "hideSummary") true) }}
+    <section class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </section>
+    {{- end }}
+    <footer class="entry-footer">
+      <span class="entry-meta">
+        📅 {{ .Date.Format "2006.01.02" }} · ☕ {{ .ReadingTime }}分で読める
+      </span>
+    </footer>
+  </a>
+</article>
+{{- end }}
+
+{{- template "_internal/pagination.html" . }}
+
+{{- end }}{{/* end main */}}
