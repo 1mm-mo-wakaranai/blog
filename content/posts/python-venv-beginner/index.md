@@ -1,5 +1,5 @@
 ---
-title: "「ModuleNotFoundError」が出たら読む記事 ― Python仮想環境のはじめ方"
+title: "【Python】ModuleNotFoundErrorの原因と解決方法 ― 仮想環境入門"
 date: 2026-04-13
 tags: ["Python", "初心者向け", "エラー解決"]
 description: "PythonでModuleNotFoundErrorが出る原因と、仮想環境（venv）を使った根本的な解決方法を初心者向けに解説します。"

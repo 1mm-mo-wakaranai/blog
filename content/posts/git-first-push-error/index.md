@@ -1,5 +1,5 @@
 ---
-title: "【初心者向け】git pushしたら「rejected」と言われたときの対処法"
+title: "【Git】git pushでrejectedエラーが出たときの対処法"
 date: 2026-04-14
 tags: ["Git", "初心者向け", "エラー解決"]
 description: "git pushしたらrejectedエラーが出て困っている初心者向けに、原因と解決方法をステップごとに解説します。"
