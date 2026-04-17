@@ -7,8 +7,8 @@ ShowShareButtons: false
 ShowPostNavLinks: false
 ---
 
-当サイトへのお問い合わせは、以下のフォームからお願いいたします。
+当サイトへのお問い合わせは、以下のリンクからお願いいたします。
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdSQXNG5gdB2CtjDw87/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+### [📩 お問い合わせフォームを開く](https://forms.gle/SQXNG5gdB2CtjDw87)
 
-フォームが表示されない場合は、[こちら](https://forms.gle/SQXNG5gdB2CtjDw87)からお問い合わせください。
+お問い合わせ内容を確認後、必要に応じてご連絡いたします。
