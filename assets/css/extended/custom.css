@@ -23,7 +23,7 @@
 
 /* 全体 */
 body {
-  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif;
   line-height: 1.9;
   letter-spacing: 0.03em;
   color: var(--text-main);
