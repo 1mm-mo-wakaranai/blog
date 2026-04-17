@@ -55,3 +55,8 @@ paginate = 10
     name = "プライバシーポリシー"
     url = "/privacy/"
     weight = 40
+  [[menu.main]]
+    identifier = "contact"
+    name = "お問い合わせ"
+    url = "/contact/"
+    weight = 50
