@@ -12,6 +12,9 @@ draft: false
 
 この記事では、pip installでよく出るエラーを5つ取り上げて、それぞれの原因と解決方法を説明します。
 
+
+{{< ad >}}
+
 ## エラー1: Permission denied（権限エラー）
 
 ```

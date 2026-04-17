@@ -17,6 +17,9 @@ error: failed to push some refs to 'https://github.com/...'
 
 「rejected」って何？ 壊した？ と焦るかもしれませんが、大丈夫です。よくあることで、簡単に直せます。
 
+
+{{< ad >}}
+
 ## なぜこのエラーが出るのか
 
 GitHub上のコードと、あなたのPC上のコードが「ズレている」のが原因です。

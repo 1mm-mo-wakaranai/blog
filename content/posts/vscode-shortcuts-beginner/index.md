@@ -14,6 +14,9 @@ draft: false
 
 VS Code（Visual Studio Code）は、Microsoftが作った無料のコードエディタです。プログラミングをする人のほとんどが使っています。
 
+
+{{< ad >}}
+
 ## 最初にやる設定（3つ）
 
 ### 1. 日本語化

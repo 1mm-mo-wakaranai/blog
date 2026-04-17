@@ -21,6 +21,9 @@ draft: false
 └── その他/      ← 上記に当てはまらないもの
 ```
 
+
+{{< ad >}}
+
 ## 必要なもの
 
 - Python 3.8 以上（[公式サイト](https://www.python.org/downloads/)からインストール）
