@@ -60,3 +60,8 @@ paginate = 10
     name = "お問い合わせ"
     url = "/contact/"
     weight = 50
+  [[menu.main]]
+    identifier = "about"
+    name = "プロフィール"
+    url = "/about/"
+    weight = 35
