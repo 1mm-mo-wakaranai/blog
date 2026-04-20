@@ -118,6 +118,11 @@ GitHubの画面上でファイルを編集するのは練習としてはOKです
 
 最初は「コードの保管場所」として使うだけで十分です。慣れてきたら、他の人のコードを見たり、自分のポートフォリオとして活用したりできます。
 
+---
+### あわせて読みたい
+- [git pushでrejectedエラーが出たときの対処法](/posts/git-first-push-error/)
+- [GitHub Copilot無料プランでAIにコードを書いてもらう方法](/posts/github-copilot-free/)
+
 <!-- affiliate -->
 ## 関連リソース
 

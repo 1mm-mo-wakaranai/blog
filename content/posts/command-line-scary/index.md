@@ -153,6 +153,11 @@ cls
 
 これだけ知っていれば、「ターミナルを開いてこのコマンドを実行してください」と言われても怖くありません。
 
+---
+### あわせて読みたい
+- [VS Code最初に覚えるべき設定とショートカット10選](/posts/vscode-shortcuts-beginner/)
+- [git pushでrejectedエラーが出たときの対処法](/posts/git-first-push-error/)
+
 <!-- affiliate -->
 ## 関連リソース
 

@@ -112,6 +112,11 @@ def add(a, b):
 - コメントを書くだけでAIがコードを提案してくれる
 - 提案は必ず確認してから採用する
 
+---
+### あわせて読みたい
+- [VS Code最初に覚えるべき設定とショートカット10選](/posts/vscode-shortcuts-beginner/)
+- [GitHubアカウントを作ったけど何すればいい？最初の使い方ガイド](/posts/github-what-is-it/)
+
 <!-- affiliate -->
 ## 関連リソース
 

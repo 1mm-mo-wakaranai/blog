@@ -138,6 +138,11 @@ align-items: center;
 - 上下左右ど真ん中 → `flexbox` か `grid`
 - 効かないときは親要素の高さを確認
 
+---
+### あわせて読みたい
+- [最低限のHTMLファイルの書き方 ― コピペで使えるテンプレート付き](/posts/html-basic-structure/)
+- [VS Code最初に覚えるべき設定とショートカット10選](/posts/vscode-shortcuts-beginner/)
+
 <!-- affiliate -->
 ## 関連リソース
 

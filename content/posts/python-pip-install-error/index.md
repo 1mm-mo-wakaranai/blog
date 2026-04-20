@@ -155,6 +155,11 @@ pip install パッケージ名==バージョン番号
 - ModuleNotFoundError → `python -m pip install` を使う
 - Could not build wheels → pip/setuptools を更新
 
+---
+### あわせて読みたい
+- [ModuleNotFoundErrorの原因と解決方法 ― 仮想環境入門](/posts/python-venv-beginner/)
+- [環境変数とは？.envファイルの使い方をゼロから解説](/posts/env-variables-beginner/)
+
 <!-- affiliate -->
 ## 関連リソース
 

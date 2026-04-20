@@ -95,6 +95,11 @@ netstat -ano | findstr :3000
 - ポートが他のプログラムに使われていないか確認
 - ファイアウォールを確認
 
+---
+### あわせて読みたい
+- [コマンドラインが怖い人へ ― 覚えるコマンド5つだけ](/posts/command-line-scary/)
+- [VS Code最初に覚えるべき設定とショートカット10選](/posts/vscode-shortcuts-beginner/)
+
 {{< ad >}}
 
 <!-- affiliate -->

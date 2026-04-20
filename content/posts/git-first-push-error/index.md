@@ -85,6 +85,11 @@ git push origin main
 
 Gitに慣れないうちはこのエラーに何度も出会います。でも毎回やることは同じなので、すぐ慣れます。
 
+---
+### あわせて読みたい
+- [GitHubアカウントを作ったけど何すればいい？最初の使い方ガイド](/posts/github-what-is-it/)
+- [コマンドラインが怖い人へ ― 覚えるコマンド5つだけ](/posts/command-line-scary/)
+
 <!-- affiliate -->
 ## 関連リソース
 

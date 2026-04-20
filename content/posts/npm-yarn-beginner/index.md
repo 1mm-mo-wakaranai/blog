@@ -107,6 +107,11 @@ npm init -y
 - `node_modules` はGitHubに上げない
 - yarnはnpmの代替。初心者はnpmでOK
 
+---
+### あわせて読みたい
+- [JSONとは？5分で分かるデータ形式の基本](/posts/json-what-is-it/)
+- [環境変数とは？.envファイルの使い方をゼロから解説](/posts/env-variables-beginner/)
+
 <!-- affiliate -->
 ## 関連リソース
 

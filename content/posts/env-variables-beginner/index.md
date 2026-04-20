@@ -132,6 +132,11 @@ MESSAGE="Hello World"
 - `.gitignore` に `.env` を追加するのを絶対に忘れない
 - APIキーやパスワードは絶対にコードに直接書かない
 
+---
+### あわせて読みたい
+- [pip installでエラーが出たときの対処法まとめ](/posts/python-pip-install-error/)
+- [GitHubアカウントを作ったけど何すればいい？最初の使い方ガイド](/posts/github-what-is-it/)
+
 <!-- affiliate -->
 ## 関連リソース
 

@@ -110,6 +110,11 @@ deactivate
 
 慣れると、新しいプロジェクトを始めるときに無意識にやるようになります。
 
+---
+### あわせて読みたい
+- [pip installでエラーが出たときの対処法まとめ](/posts/python-pip-install-error/)
+- [ダウンロードフォルダを自動整理するPythonスクリプトの作り方](/posts/python-auto-file-organizer/)
+
 <!-- affiliate -->
 ## 関連リソース
 
