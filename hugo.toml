@@ -22,6 +22,10 @@ paginate = 10
     Title = "ググっても分からなかった初心者へ"
     Content = "検索しても解決しなかったあの問題、ここで一緒に解決します。"
 
+  [[params.socialIcons]]
+    name = "x"
+    url = "https://x.com/1mm_mowakaranai"
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
