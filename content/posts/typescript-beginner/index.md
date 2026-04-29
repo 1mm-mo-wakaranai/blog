@@ -23,6 +23,8 @@ TypeScriptは **「型（かた）が付いたJavaScript」** です。
 
 Microsoftが開発した言語で、JavaScriptに「型」という仕組みを追加したものです。TypeScriptで書いたコードは、最終的にJavaScriptに変換されてブラウザやNode.jsで動きます。
 
+JavaScriptの非同期処理については[async/awaitの使い方入門](/posts/javascript-async-await/)で解説しています。TypeScriptでも同じ構文が使えます。
+
 {{< ad >}}
 
 ## 手順
@@ -93,7 +95,11 @@ let isStudent: boolean = true;
 
 // 配列
 let scores: number[] = [80, 90, 70];
+```
 
+配列の操作方法については[JavaScriptの配列メソッド ― 初心者が最初に覚えるべき5つ](/posts/javascript-array-methods/)で詳しく解説しています。TypeScriptでも同じメソッドがそのまま使えます。
+
+```typescript
 // オブジェクト
 type User = {
   name: string;
@@ -115,7 +121,11 @@ TypeScript Playground（https://www.typescriptlang.org/play）にアクセスす
 ```bash
 # TypeScriptをインストール
 npm install -g typescript
+```
 
+npmの使い方に不安がある方は、[npmとyarnの違い ― どっちを使えばいい？](/posts/npm-yarn-beginner/)を先に読んでおくとスムーズです。
+
+```bash
 # ファイルを作成
 echo 'let message: string = "Hello TypeScript"; console.log(message);' > hello.ts
 
@@ -135,6 +145,30 @@ TypeScriptはJavaScriptの「上位互換」です。
 - ブラウザやNode.jsが直接実行するのはJavaScript
 
 つまり、JavaScriptの知識は無駄になりません。TypeScriptはJavaScriptに「安全装置」を付けたものと考えてください。
+
+VS Codeを使っている場合、TypeScriptの型チェックはエディタ上でリアルタイムに表示されます。[VS Codeの設定とショートカット](/posts/vscode-shortcuts-beginner/)を参考に環境を整えておくと、開発体験がさらに良くなります。
+
+## よくある質問（FAQ）
+
+### Q: TypeScriptを使うにはJavaScriptを先に覚える必要がありますか？
+
+A: はい、基本的なJavaScriptの知識（変数、関数、配列、オブジェクト）は必要です。TypeScriptはJavaScriptに型を追加したものなので、JavaScriptの基礎が分かっていれば、TypeScriptの学習はスムーズに進みます。
+
+### Q: TypeScriptはフロントエンドだけで使うものですか？
+
+A: いいえ。Node.jsを使ったバックエンド開発でもTypeScriptは広く使われています。APIサーバーやCLIツールなど、JavaScriptが動く場所ならどこでもTypeScriptを使えます。
+
+### Q: `any` 型を使えば型エラーを回避できますが、使ってもいいですか？
+
+A: `any` はTypeScriptの型チェックを無効にする型です。一時的な回避策としては使えますが、多用するとTypeScriptを使う意味がなくなります。まずは `string` や `number` など具体的な型を使い、どうしても型が分からない場合に限って `unknown` を検討してください。
+
+### Q: TypeScriptのコンパイルが面倒です。もっと手軽に実行する方法はありますか？
+
+A: `ts-node` というツールを使うと、コンパイルなしで直接TypeScriptを実行できます。`npx ts-node hello.ts` で試せます。開発中の動作確認に便利です。
+
+### Q: 既存のJavaScriptプロジェクトをTypeScriptに移行するのは大変ですか？
+
+A: 一度に全部変える必要はありません。`.js` ファイルを `.ts` にリネームして、少しずつ型を追加していく方法が一般的です。`tsconfig.json` で `allowJs: true` を設定すれば、JSファイルとTSファイルを混在させることもできます。
 
 ## まとめと次のステップ
 

@@ -16,7 +16,7 @@ GitHubやブログでよく使われるMarkdownの書き方を、よく使うも
 
 Markdownは、テキストに簡単な記号をつけるだけで、見出しや箇条書きなどの書式を表現できる書き方のルールです。
 
-HTMLを書くより圧倒的に簡単で、GitHubのREADME、ブログ記事、ドキュメントなど、あらゆる場所で使われています。
+HTMLを書くより圧倒的に簡単で、GitHubのREADME、ブログ記事、ドキュメントなど、あらゆる場所で使われています。[HTMLの基本構造](/posts/html-basic-structure/)を知っていると、Markdownがどれだけ手軽かが実感できます。
 
 ## よく使う書き方10選
 
@@ -82,6 +82,8 @@ print("Hello, World!")
 
 言語名を指定すると、シンタックスハイライト（色分け）がつきます。
 
+GitHubのREADMEでは、コードブロックを使ってインストール手順やコマンドを見やすく表示するのが一般的です。
+
 ### 8. インラインコード
 
 ```markdown
@@ -107,9 +109,46 @@ print("Hello, World!")
 
 ## どこで練習できる？
 
-- GitHubでリポジトリを作って `README.md` を編集する
-- VS Codeでプレビュー付きで書く（`Ctrl + Shift + V`）
+- [GitHubでリポジトリを作って](/posts/github-what-is-it/) `README.md` を編集する
+- VS Codeでプレビュー付きで書く（`Ctrl + Shift + V`）。[VS Codeのショートカット](/posts/vscode-shortcuts-beginner/)を覚えると効率が上がります
 - https://dillinger.io/ でブラウザ上で試す
+
+## Markdownの活用シーン
+
+Markdownは開発のさまざまな場面で使われています。
+
+### GitHubのREADME
+
+リポジトリのトップに表示される `README.md` は、プロジェクトの説明書です。[GitHubの使い方](/posts/github-what-is-it/)を学ぶと、READMEの書き方がより実践的に理解できます。
+
+### プルリクエストやIssue
+
+GitHubの[プルリクエストやIssue](/posts/git-branch-beginner/)でもMarkdownが使えます。コードブロックやチェックリストを使って、分かりやすいレビューコメントが書けます。
+
+### 技術ブログ
+
+多くのブログプラットフォーム（Zenn、Qiita、Hugo、Gatsbyなど）がMarkdownに対応しています。一度書き方を覚えれば、どのプラットフォームでも使えるのが強みです。
+
+### ドキュメント・メモ
+
+Notion、Obsidian、HackMDなどのツールでもMarkdownが使えます。日常的なメモや議事録にも活用できます。
+
+## よくある質問（FAQ）
+
+### Q: MarkdownとHTMLはどちらを覚えるべきですか？
+A: 用途が違うので、両方知っておくと便利です。Markdownはドキュメントやブログ記事を手軽に書くためのもの、[HTMLはWebページの構造を作る](/posts/html-basic-structure/)ためのものです。Markdownの方が覚えることが少ないので、先にMarkdownから始めるのがおすすめです。
+
+### Q: Markdownで表（テーブル）は作れますか？
+A: はい、作れます。`|` と `-` を使って表を作ります。たとえば `| 項目 | 値 |` のように書きます。ただし、複雑な表はHTMLで書いた方が見やすい場合もあります。
+
+### Q: Markdownのプレビューがうまく表示されません。なぜですか？
+A: 記号の前後にスペースが必要な場合があります。たとえば `#見出し` ではなく `# 見出し` のように、`#` の後にスペースを入れてください。また、箇条書きの `-` の後にもスペースが必要です。
+
+### Q: Markdownファイルの拡張子は `.md` と `.markdown` のどちらですか？
+A: どちらでも認識されますが、`.md` が一般的です。GitHubでも `.md` が標準的に使われています。
+
+### Q: Markdownで画像のサイズを指定できますか？
+A: 標準のMarkdownでは画像サイズの指定はできません。サイズを変えたい場合は、HTMLの `<img>` タグを直接書くか、使っているプラットフォーム独自の拡張記法を使います。
 
 ## まとめ
 

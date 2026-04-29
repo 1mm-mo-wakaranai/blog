@@ -12,6 +12,8 @@ draft: false
 
 この記事では、pip installでよく出るエラーを5つ取り上げて、それぞれの原因と解決方法を説明します。
 
+ターミナル操作に不安がある方は、先に[コマンドラインが怖い人へ ― 覚えるコマンド5つだけ](/posts/command-line-scary/)を読んでおくとスムーズです。
+
 
 {{< ad >}}
 
@@ -33,7 +35,7 @@ ERROR: Could not install packages due to an EnvironmentError: [Errno 13] Permiss
 pip install --user パッケージ名
 ```
 
-もしくは、仮想環境を使うのが根本的な解決策です。
+もしくは、仮想環境を使うのが根本的な解決策です。仮想環境の作り方は[仮想環境（venv）入門](/posts/python-venv-beginner/)で詳しく解説しています。
 
 ```bash
 python -m venv .venv
@@ -123,6 +125,8 @@ python -m pip install requests
 
 これで「今動いているPython」に確実にインストールされます。
 
+なお、プロジェクトごとにPython環境を分けておくと、こうした問題を根本的に防げます。環境変数の仕組みについては[環境変数とは？.envファイルの使い方をゼロから解説](/posts/env-variables-beginner/)も参考になります。
+
 ## エラー5: Could not build wheels
 
 ```
@@ -135,7 +139,7 @@ ERROR: Could not build wheels for パッケージ名
 
 ### 解決方法
 
-まず pip と setuptools を最新にします。
+まず pip と setuptools を最新にします。npmの世界でも似たようなパッケージ管理の仕組みがあります。興味がある方は[npmとyarnの違い](/posts/npm-yarn-beginner/)も読んでみてください。
 
 ```bash
 python -m pip install --upgrade pip setuptools wheel
@@ -146,6 +150,28 @@ python -m pip install --upgrade pip setuptools wheel
 ```bash
 pip install パッケージ名==バージョン番号
 ```
+
+## よくある質問（FAQ）
+
+### Q: `pip` と `pip3` はどう違いますか？
+
+A: `pip` はPython 2系、`pip3` はPython 3系に紐づいていることが多いです。ただし環境によって異なるため、`python -m pip install` を使うのが最も確実です。どのPythonに対してインストールしているかが明確になります。
+
+### Q: 仮想環境の中で `pip install` すれば `--user` は不要ですか？
+
+A: はい、不要です。仮想環境内では、その環境専用のディレクトリにインストールされるため、権限の問題は起きません。仮想環境の使い方は[仮想環境（venv）入門](/posts/python-venv-beginner/)で解説しています。
+
+### Q: `pip install` したパッケージの一覧を確認するには？
+
+A: `pip list` コマンドで、現在インストールされているパッケージとバージョンの一覧が表示されます。特定のパッケージの詳細を見たい場合は `pip show パッケージ名` を使います。
+
+### Q: プロキシ環境で毎回 `--proxy` を指定するのが面倒です。
+
+A: `pip.conf`（Windowsでは `pip.ini`）にプロキシ設定を書いておけば、毎回指定する必要がなくなります。設定ファイルの場所は `pip config list` で確認できます。
+
+### Q: `pip install` と `conda install` はどう違いますか？
+
+A: `pip` はPython公式のパッケージマネージャで、PyPIからパッケージをインストールします。`conda` はAnaconda/Minicondaに付属するパッケージマネージャで、Python以外のライブラリ（C言語のライブラリなど）も一緒に管理できます。データサイエンス系のパッケージを多く使う場合はcondaが便利です。
 
 ## まとめ
 

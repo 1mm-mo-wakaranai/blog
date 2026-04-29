@@ -15,7 +15,7 @@ draft: false
 error: failed to push some refs to 'https://github.com/...'
 ```
 
-「rejected」って何？ 壊した？ と焦るかもしれませんが、大丈夫です。よくあることで、簡単に直せます。
+「rejected」って何？ 壊した？ と焦るかもしれませんが、大丈夫です。よくあることで、手順通りに対処すれば解決します。ターミナル操作に慣れていない方は、先に[コマンドラインが怖い人へ ― 最初に覚える10コマンド](/posts/command-line-scary/)を読んでおくとスムーズです。
 
 
 {{< ad >}}
@@ -29,7 +29,7 @@ GitHub上のコードと、あなたのPC上のコードが「ズレている」
 - 別のPCからpushした
 - リポジトリを作るときにREADMEを自動生成した
 
-GitHubの方が「先に進んでいる」ので、Gitが「まずそっちの変更を取り込んでからpushしてね」と言っています。
+GitHubの方が「先に進んでいる」ので、Gitが「まずそっちの変更を取り込んでからpushしてね」と言っています。GitHubの基本的な使い方については[GitHubとは？アカウント作成から最初の使い方ガイド](/posts/github-what-is-it/)で解説しています。
 
 ## 解決方法
 
@@ -76,6 +76,55 @@ git add .
 git commit -m "conflictを解決"
 git push origin main
 ```
+
+コンフリクトの解決方法やブランチの使い方については、[Gitブランチが分からない人へ ― 図解で理解する基本操作](/posts/git-branch-beginner/)でも詳しく解説しています。
+
+## よくあるエラーのバリエーション
+
+### `non-fast-forward` エラー
+
+```
+! [rejected]        main -> main (non-fast-forward)
+```
+
+これも `rejected` と同じ原因です。`git pull origin main` してから `git push` すれば解決します。
+
+### `Permission denied` エラー
+
+```
+remote: Permission to ユーザー名/リポジトリ.git denied
+```
+
+これはpushの権限がない場合に出ます。リポジトリのオーナーか、コラボレーターとして招待されているか確認してください。自分のリポジトリなのに出る場合は、GitHubの認証設定（SSH鍵やPersonal Access Token）を見直しましょう。
+
+### `fatal: remote origin already exists`
+
+リモートの設定が重複している場合に出ます。以下で一度削除してから再設定します。
+
+```bash
+git remote remove origin
+git remote add origin https://github.com/ユーザー名/リポジトリ名.git
+```
+
+GitHub Pagesでサイトを公開する場合など、pushは頻繁に使う操作です。[GitHub Pagesで無料でサイトを公開する方法](/posts/github-pages-deploy/)も参考にしてみてください。
+
+## よくある質問（FAQ）
+
+### Q: `git pull` したらファイルの中身がぐちゃぐちゃになりました。元に戻せますか？
+
+A: `git merge --abort` を実行すると、pull（マージ）前の状態に戻せます。落ち着いてやり直しましょう。
+
+### Q: `git push -f`（強制push）で解決してもいいですか？
+
+A: 個人開発で自分しか使っていないリポジトリなら問題ありませんが、チーム開発では他の人の変更を上書きしてしまうため、基本的に使わないでください。まずは `git pull` で解決するのが安全です。
+
+### Q: 毎回 `origin main` を指定するのが面倒です。省略できますか？
+
+A: `git push -u origin main` を一度実行すると、次回から `git push` だけで同じブランチにpushできます。`-u` はupstream（追跡ブランチ）を設定するオプションです。
+
+### Q: pullしたら「Already up to date.」と表示されるのにpushできません。
+
+A: ブランチ名が合っているか確認してください。ローカルが `main` でリモートが `master`（またはその逆）になっているケースがあります。`git branch -a` でブランチ名を確認しましょう。
 
 ## まとめと次のステップ
 

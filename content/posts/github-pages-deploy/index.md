@@ -23,7 +23,7 @@ GitHubが提供する無料のWebホスティングサービスです。
 - 対応: HTML, CSS, JavaScript（静的サイト）
 - 制限: サーバーサイドの処理（PHP, データベースなど）は使えない
 
-ポートフォリオサイト、ブログ、ドキュメントサイトなどに最適です。
+ポートフォリオサイト、ブログ、ドキュメントサイトなどに最適です。GitHubのアカウントをまだ持っていない方は、[GitHubとは？アカウント作成から最初の使い方ガイド](/posts/github-what-is-it/)を先に読んでおくとスムーズです。
 
 ## 手順
 
@@ -119,7 +119,7 @@ git commit -m "Update content"
 git push
 ```
 
-反映まで1〜2分かかることがあります。
+反映まで1〜2分かかることがあります。pushでエラーが出た場合は、[git pushでrejectedエラーが出たときの対処法](/posts/git-first-push-error/)を参考にしてください。
 
 ## よくあるトラブル
 
@@ -141,10 +141,13 @@ git push
 <link rel="stylesheet" href="./css/style.css">
 ```
 
+HTMLの基本的な構造については[最低限のHTMLファイルの書き方 ― コピペで使えるテンプレート付き](/posts/html-basic-structure/)で解説しています。CSSのレイアウトで困ったときは[CSSで中央揃えができないときの解決パターン集](/posts/html-css-center/)も参考にしてみてください。
+
 ### 更新が反映されない
 
 - ブラウザのキャッシュをクリア（Ctrl + Shift + R）
 - GitHubのActionsタブでデプロイが完了しているか確認
+- ターミナル操作に不安がある方は[コマンドラインが怖い人へ ― 最初に覚える10コマンド](/posts/command-line-scary/)も参考にしてください
 
 ## 独自ドメインを設定する（オプション）
 
@@ -154,6 +157,28 @@ git push
 2. ドメイン管理画面でCNAMEレコードを設定:
    - ホスト: `www`
    - 値: `ユーザー名.github.io`
+
+## よくある質問（FAQ）
+
+### Q: GitHub Pagesは本当に完全無料ですか？
+
+A: はい、パブリックリポジトリであれば完全無料です。プライベートリポジトリでGitHub Pagesを使う場合は、GitHub Proプラン（有料）が必要になります。
+
+### Q: GitHub PagesでWordPressのようなブログは作れますか？
+
+A: WordPressは動的サイト（サーバーサイド処理が必要）なので、GitHub Pagesでは動きません。代わりに、Hugo、Jekyll、Astroなどの静的サイトジェネレーターを使えば、ブログを構築できます。
+
+### Q: 独自ドメインを設定するとHTTPS（SSL）は使えますか？
+
+A: はい、GitHub Pagesは独自ドメインでも無料でHTTPSを提供しています。Settings → Pages → 「Enforce HTTPS」にチェックを入れるだけで有効になります。
+
+### Q: 1つのアカウントで複数のサイトを公開できますか？
+
+A: はい、リポジトリごとにGitHub Pagesを有効にできます。URLは `https://ユーザー名.github.io/リポジトリ名/` の形式になります。また、`ユーザー名.github.io` という名前のリポジトリを作ると、`https://ユーザー名.github.io/` でアクセスできるメインサイトになります。
+
+### Q: GitHub Pagesにアクセス制限（パスワード保護）をかけられますか？
+
+A: GitHub Pages自体にはアクセス制限の機能はありません。パブリックリポジトリのGitHub Pagesは誰でもアクセスできます。アクセス制限が必要な場合は、別のホスティングサービスを検討してください。
 
 ## まとめ
 
