@@ -21,3 +21,17 @@
 </style>
 <!-- Google AdSense 審査用コード -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2213738878575745" crossorigin="anonymous"></script>
+<!-- 記事中広告の自動挿入（3つ目のh2の前） -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var content = document.getElementById('post-content');
+  if (!content) return;
+  var h2s = content.querySelectorAll('h2');
+  if (h2s.length >= 3) {
+    var ad = document.createElement('div');
+    ad.className = 'ad-mid-article';
+    ad.innerHTML = '<div class="admax-pc"><!-- admax --><script src="https://adm.shinobi.jp/s/e302ba1409c01d850122cd181e3e974d"><\/script><!-- admax --></div><div class="admax-sp"><!-- admax --><script src="https://adm.shinobi.jp/s/e211b24947d4bfe74c47e3219e4ea5dd"><\/script><!-- admax --></div>';
+    h2s[2].parentNode.insertBefore(ad, h2s[2]);
+  }
+});
+</script>

@@ -29,7 +29,7 @@
     </aside>
     {{- end }}
 
-    <div class="post-content">
+    <div class="post-content" id="post-content">
       {{ .Content }}
     </div>
 
@@ -85,6 +85,19 @@
         {{ end }}
       </ul>
     </div>
+
+    <!-- おすすめ記事 -->
+    <div class="sidebar-card sidebar-pickup">
+      <div class="sidebar-card-header">🔥 よく読まれている記事</div>
+      <ul class="sidebar-recent">
+        <li><a href="/posts/css-flexbox-beginner/">Flexboxが分からない人へ ― 図解で覚える基本</a></li>
+        <li><a href="/posts/api-what-is-it/">APIとは？レストランの注文に例えて理解する</a></li>
+        <li><a href="/posts/cors-error-beginner/">CORSエラーとは？原因と解決方法</a></li>
+        <li><a href="/posts/github-what-is-it/">GitHubとは？最初の使い方ガイド</a></li>
+        <li><a href="/posts/javascript-async-await/">async/awaitが分からない人へ</a></li>
+      </ul>
+    </div>
+
     <!-- サイドバー広告（PC縦型） -->
     <div class="sidebar-card admax-pc" style="text-align: center;">
       <!-- admax --><script src="https://adm.shinobi.jp/s/dd59fae7847883df09ba2d527a9209cf"></script><!-- admax -->

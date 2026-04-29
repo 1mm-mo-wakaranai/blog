@@ -651,3 +651,54 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================
+   内部リンク強調（回遊率UP）
+   ======================================== */
+.post-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-light);
+  padding-bottom: 1px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.post-content a:hover {
+  background: var(--accent-light);
+  border-bottom-color: var(--accent);
+  border-radius: 3px;
+}
+
+/* 記事内リンクカード風（あわせて読みたい等） */
+.post-content a[href^="/posts/"] {
+  display: inline;
+  border-bottom: 2px solid var(--accent);
+}
+
+.post-content a[href^="/posts/"]:hover {
+  background: var(--accent-light);
+}
+
+/* ========================================
+   人気記事セクション（サイドバー）
+   ======================================== */
+.sidebar-pickup .sidebar-card-header {
+  color: #e74c3c;
+  border-bottom-color: #fde8e8;
+}
+
+.sidebar-pickup .sidebar-recent li a:hover {
+  color: #e74c3c;
+}
+
+/* ========================================
+   記事中広告の余白調整
+   ======================================== */
+.ad-mid-article {
+  text-align: center;
+  margin: 2.5rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
