@@ -702,3 +702,24 @@ body {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
+
+/* ========================================
+   画面幅いっぱいに表示
+   ======================================== */
+.main {
+  max-width: 100%;
+  padding: 0 2rem;
+}
+
+.post-single {
+  max-width: 100%;
+}
+
+.post-content {
+  max-width: 100%;
+}
+
+/* サイドバーレイアウトも幅制限解除 */
+.layout-with-sidebar {
+  max-width: 100%;
+}
