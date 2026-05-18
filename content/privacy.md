@@ -13,7 +13,6 @@ ShowPostNavLinks: false
 
 当サイトでは、第三者配信の広告サービスとして以下を利用しています。
 
-- **忍者AdMax**（株式会社サムライファクトリー）
 - **Google AdSense**（Google LLC）
 
 これらの広告配信事業者は、ユーザーの興味に応じた広告を表示するために、Cookie（クッキー）を使用することがあります。Google AdSenseにおけるCookieの利用については、[Google広告に関するポリシー](https://policies.google.com/technologies/ads)をご確認ください。
