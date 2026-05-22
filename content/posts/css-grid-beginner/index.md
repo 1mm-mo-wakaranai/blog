@@ -231,9 +231,4 @@ A: ChromeやFirefoxの開発者ツール（F12）にGrid専用のデバッグ機
 - [CSS Flexbox入門 ― 横並びレイアウトの基本](/posts/css-flexbox-beginner/)
 - [CSSで中央揃えする方法まとめ](/posts/html-css-center/)
 
-<!-- affiliate -->
-## 関連リソース
 
-📘 [Web開発の入門書をAmazonで探す](https://YOUR-AFFILIATE-LINK/amazon-web)
-
-<!-- /affiliate -->

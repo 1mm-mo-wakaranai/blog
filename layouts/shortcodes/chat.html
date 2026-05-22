@@ -1,0 +1,17 @@
+{{/* 吹き出し会話ショートコード */}}
+{{/* 使い方: {{< chat name="エンタくん" icon="/images/enta-icon.png" direction="left" >}}テキスト{{< /chat >}} */}}
+{{/* direction: left（相手）, right（自分） */}}
+
+{{ $name := .Get "name" }}
+{{ $icon := .Get "icon" | default "/images/default-icon.png" }}
+{{ $direction := .Get "direction" | default "left" }}
+
+<div class="chat-bubble chat-{{ $direction }}">
+  <div class="chat-icon">
+    <img src="{{ $icon }}" alt="{{ $name }}">
+    <span class="chat-name">{{ $name }}</span>
+  </div>
+  <div class="chat-text">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

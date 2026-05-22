@@ -187,11 +187,4 @@ A: `push`、`pop`、`splice`、`sort`、`reverse` などは元の配列を変更
 
 まずは普段 for文で書いている処理を `map` や `filter` に置き換えてみてください。コードが短くなるだけでなく、意図が伝わりやすくなります。
 
-<!-- affiliate -->
-## 関連リソース
 
-📘 [JavaScriptの入門書をAmazonで探す](https://YOUR-AFFILIATE-LINK/amazon-js)
-
-📚 [Udemyで学ぶ](https://YOUR-AFFILIATE-LINK/udemy)
-
-<!-- /affiliate -->

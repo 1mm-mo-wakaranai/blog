@@ -131,10 +131,4 @@ A: はい。`Ctrl + K` → `Ctrl + S` でキーボードショートカットの
 - [GitHub Copilot無料プランでAIにコードを書いてもらう方法](/posts/github-copilot-free/)
 - [コマンドラインが怖い人へ ― 覚えるコマンド5つだけ](/posts/command-line-scary/)
 
-<!-- affiliate -->
-## 関連リソース
 
-VS Codeをもっと使いこなしたい方へ：
-
-<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");msmaflink({"n":"Visual Studio Code完全入門 ― Webクリエイター&エンジニアの作業がはかどる新世代エディター","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":[""],"u":{"u":"https:\/\/search.rakuten.co.jp\/search\/mall\/Visual%20Studio%20Code%20%E5%AE%8C%E5%85%A8%E5%85%A5%E9%96%80\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/search.rakuten.co.jp\/search\/mall\/Visual%20Studio%20Code%20%E5%AE%8C%E5%85%A8%E5%85%A5%E9%96%80\/","a_id":5490814,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":1},{"u_bc":"#f79256","u_tx":"Amazonで見る","u_url":"https:\/\/www.amazon.co.jp\/s\/ref=nb_sb_noss_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Daps&field-keywords=Visual%20Studio%20Code%E5%AE%8C%E5%85%A8%E5%85%A5%E9%96%80","s_n":"amazon","u_so":2,"a_id":5490817,"p_id":170,"pc_id":185,"pl_id":27060,"id":2}],"eid":"VCvQb","s":"s"});</script><div id="msmaflink-VCvQb">リンク</div><!-- MoshimoAffiliateEasyLink END -->
-<!-- /affiliate -->

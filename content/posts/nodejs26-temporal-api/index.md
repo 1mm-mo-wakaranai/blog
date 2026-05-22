@@ -306,10 +306,4 @@ A: `Temporal.Now.instant()` が現在時刻のInstant（瞬間）を返します
 - [Node.js 20のサポート終了 ― 確認すべきことと移行手順](/posts/nodejs20-end-of-life/)
 - [npm/yarnの違いと使い方 ― パッケージ管理の基本](/posts/npm-yarn-beginner/)
 
-<!-- affiliate -->
-## 関連リソース
 
-JavaScriptをもっと深く学びたい方へ：
-
-<!-- START MoshimoAffiliateEasyLink --><script type="text/javascript">(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;b[a]=b[a]||function(){arguments.currentScript=c.currentScript||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a,e=c.getElementsByTagName("body")[0],e.appendChild(d))})(window,document,"script","//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");msmaflink({"n":"JavaScript本格入門","b":"","t":"","d":"https:\/\/thumbnail.image.rakuten.co.jp","c_p":"","p":[""],"u":{"u":"https:\/\/item.rakuten.co.jp\/book\/17630643\/","t":"rakuten","r_v":""},"v":"2.1","b_l":[{"id":1,"u_tx":"楽天市場で見る","u_bc":"#f76956","u_url":"https:\/\/item.rakuten.co.jp\/book\/17630643\/","a_id":5490814,"p_id":54,"pl_id":27059,"pc_id":54,"s_n":"rakuten","u_so":1},{"u_bc":"#f79256","u_tx":"Amazonで見る","u_url":"https:\/\/www.amazon.co.jp\/s\/ref=nb_sb_noss_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Daps&field-keywords=JavaScript%E6%9C%AC%E6%A0%BC%E5%85%A5%E9%96%80","s_n":"amazon","u_so":2,"a_id":5490817,"p_id":170,"pc_id":185,"pl_id":27060,"id":2}],"eid":"tR7x2m","s":"s"});</script><div id="msmaflink-tR7x2m">リンク</div><!-- MoshimoAffiliateEasyLink END -->
-<!-- /affiliate -->
