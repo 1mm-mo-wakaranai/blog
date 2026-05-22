@@ -8,13 +8,13 @@ draft: false
 
 ## この記事で分かること
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 HTTPステータスコードとは？404や500の意味を5分で理解って何？初心者でも分かるように教えて…！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 もちろん！HTTPステータスコードとは？404や500の意味を5分で理解について、初心者でも分かるように解説するよ。一緒に見ていこう。
-{< /chat >}
+{{< /chat >}}
 
 
 「404 Not Found って何？」「500エラーが出たけど、自分のせい？サーバーのせい？」
@@ -211,13 +211,13 @@ A: 「418 I'm a teapot（私はティーポットです）」は、1998年のエ
 ### Q: 開発中に500エラーが出たとき、最初に何を確認すべきですか？
 A: まずサーバーのエラーログを確認してください。500エラーはサーバー内部の問題なので、ブラウザの画面だけでは原因が分かりません。Node.jsならターミナルの出力、Pythonならトレースバックを確認します。最近変更したコードがあれば、その部分を重点的にチェックしてください。
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 なるほど…！分かりやすかった。ありがとう！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 どういたしまして。分からないことがあったらいつでも聞いてね。
-{< /chat >}
+{{< /chat >}}
 
 ## まとめ
 

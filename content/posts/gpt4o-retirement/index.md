@@ -297,13 +297,13 @@ GPT-5シリーズへの移行に伴う追加料金は発生しない見込みで
 小規模なアプリであれば、数時間の作業で完了します。
 大規模なシステムでは、テストを含めて数週間かかる場合もあります。
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 なるほど…！分かりやすかった。ありがとう！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 どういたしまして。分からないことがあったらいつでも聞いてね。
-{< /chat >}
+{{< /chat >}}
 
 ## まとめ ― 早めの準備が安心につながる
 

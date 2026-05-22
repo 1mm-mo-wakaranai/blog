@@ -8,13 +8,13 @@ draft: false
 
 ## この記事で分かること
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 Dockerとは？「環境構築が面倒」を解決する仕組みって何？初心者でも分かるように教えて…！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 もちろん！Dockerとは？「環境構築が面倒」を解決する仕組みについて、初心者でも分かるように解説するよ。一緒に見ていこう。
-{< /chat >}
+{{< /chat >}}
 
 
 「Dockerって何？なんで必要なの？」
@@ -162,13 +162,13 @@ A: Docker Composeは、複数のコンテナをまとめて管理するツール
 ### Q: Dockerのイメージはどこから取得するのですか？
 A: Docker Hubという公式のレジストリ（イメージの共有サイト）から取得します。`docker run python:3.12` と実行すると、Docker Hubから自動的にPython 3.12のイメージがダウンロードされます。公式イメージを使えば、安全で信頼性の高い環境を手軽に構築できます。
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 なるほど…！分かりやすかった。ありがとう！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 どういたしまして。分からないことがあったらいつでも聞いてね。
-{< /chat >}
+{{< /chat >}}
 
 ## まとめと次のステップ
 

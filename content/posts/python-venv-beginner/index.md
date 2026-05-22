@@ -8,13 +8,13 @@ draft: false
 
 ## この記事で分かること
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 ModuleNotFoundErrorの原因と解決方法 ― 仮想環境入門って何？初心者でも分かるように教えて…！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 もちろん！ModuleNotFoundErrorの原因と解決方法 ― 仮想環境入門について、初心者でも分かるように解説するよ。一緒に見ていこう。
-{< /chat >}
+{{< /chat >}}
 
 
 Pythonでコードを実行したら、こんなエラーが出た。
@@ -137,13 +137,13 @@ A: ターミナルの先頭に `(.venv)` と表示されていれば有効です
 
 A: プロジェクトのルートフォルダに `.venv` がある状態でVS Codeを開き直してみてください。それでも認識されない場合は、`Ctrl + Shift + P` → 「Python: Select Interpreter」で手動で `.venv` 内のPythonを選択できます。
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 なるほど…！分かりやすかった。ありがとう！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 どういたしまして。分からないことがあったらいつでも聞いてね。
-{< /chat >}
+{{< /chat >}}
 
 ## まとめと次のステップ
 

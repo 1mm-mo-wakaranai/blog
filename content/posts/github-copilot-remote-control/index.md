@@ -14,13 +14,13 @@ cover:
 
 ## この記事で分かること
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 GitHub Copilot Remote Control！スマホからコーディングを操作する方法って何？初心者でも分かるように教えて…！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 もちろん！GitHub Copilot Remote Control！スマホからコーディングを操作する方法について、初心者でも分かるように解説するよ。一緒に見ていこう。
-{< /chat >}
+{{< /chat >}}
 
 
 「Copilotが作業中にPCから離れたい」「スマホからコーディングの進捗を確認したい」という方へ。
@@ -192,13 +192,13 @@ A: まずは[Copilot CLIの入門記事](/posts/github-copilot-cli-beginner/)で
 
 A: Remote Control自体に追加料金はありません。ただし、Copilotの利用量としてカウントされるため、使用量ベース課金の対象にはなります。詳しくは[課金変更の記事](/posts/github-copilot-usage-billing/)を参照してください。
 
-{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
 なるほど…！分かりやすかった。ありがとう！
-{< /chat >}
+{{< /chat >}}
 
-{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
 どういたしまして。分からないことがあったらいつでも聞いてね。
-{< /chat >}
+{{< /chat >}}
 
 ## まとめ
 
