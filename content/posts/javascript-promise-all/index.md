@@ -12,7 +12,16 @@ cover:
   hidden: false
 ---
 
-## この記事で解決すること
+## この記事で分かること
+
+{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+Promise.allの使い方 ― 複数の非同期処理を並列実行する方法って何？初心者でも分かるように教えて…！
+{< /chat >}
+
+{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+もちろん！Promise.allの使い方 ― 複数の非同期処理を並列実行する方法について、初心者でも分かるように解説するよ。一緒に見ていこう。
+{< /chat >}
+
 
 「複数のAPI呼び出しを同時に実行したい」
 「Promise.allの使い方がよく分からない」

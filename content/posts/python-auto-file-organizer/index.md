@@ -239,6 +239,14 @@ A: Windowsならタスクスケジューラ、Mac/Linuxならcronを使います
 
 A: はい。`get_category()` 関数内で `extension.lower()` と小文字に変換してから比較しているので、大文字の拡張子でも正しく振り分けられます。
 
+{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+なるほど…！分かりやすかった。ありがとう！
+{< /chat >}
+
+{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+どういたしまして。分からないことがあったらいつでも聞いてね。
+{< /chat >}
+
 ## まとめと次のステップ
 
 Pythonの標準ライブラリだけで、ファイル整理の自動化ができました。

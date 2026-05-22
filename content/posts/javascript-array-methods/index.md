@@ -7,6 +7,15 @@ description: "for文を卒業したい人へ。map、filter、reduceの違いと
 
 ## この記事で分かること
 
+{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+配列メソッド入門｜map・filter・reduceの使い方って何？初心者でも分かるように教えて…！
+{< /chat >}
+
+{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+もちろん！配列メソッド入門｜map・filter・reduceの使い方について、初心者でも分かるように解説するよ。一緒に見ていこう。
+{< /chat >}
+
+
 JavaScriptの配列メソッド `map`、`filter`、`reduce` の使い方が分かります。
 
 「for文で書けるけど、もっとスマートに書きたい」という人向けです。[TypeScriptを始めるべき理由](/posts/typescript-beginner/)を読んでおくと、型付きの配列操作も理解しやすくなります。
@@ -178,6 +187,14 @@ A: `find` は条件に合う最初の1つだけを返します。`filter` は条
 ### Q: 元の配列を変更する（破壊的な）メソッドはどれですか？
 
 A: `push`、`pop`、`splice`、`sort`、`reverse` などは元の配列を変更します。一方、`map`、`filter`、`reduce`、`find`、`slice` は元の配列を変更せず、新しい値を返します。意図しない変更を防ぐため、非破壊的なメソッドを優先して使うのがおすすめです。
+
+{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+なるほど…！分かりやすかった。ありがとう！
+{< /chat >}
+
+{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+どういたしまして。分からないことがあったらいつでも聞いてね。
+{< /chat >}
 
 ## まとめと次のステップ
 

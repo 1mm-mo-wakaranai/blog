@@ -12,7 +12,16 @@ cover:
   hidden: false
 ---
 
-## この記事で解決すること
+## この記事で分かること
+
+{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+GitHub Copilot CLIの使い方 ― ターミナルで動くAIエージェント入門って何？初心者でも分かるように教えて…！
+{< /chat >}
+
+{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+もちろん！GitHub Copilot CLIの使い方 ― ターミナルで動くAIエージェント入門について、初心者でも分かるように解説するよ。一緒に見ていこう。
+{< /chat >}
+
 
 「GitHub Copilotってエディタの中だけのツールじゃないの？」
 

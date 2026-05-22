@@ -7,7 +7,16 @@ categories: ["Web制作"]
 description: "CSS Flexboxの基本を図解で解説。横並び、中央寄せ、均等配置など、よく使う5パターンをコピペで使えるコード付きで紹介します。"
 ---
 
-## この記事で解決すること
+## この記事で分かること
+
+{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+Flexboxが分からない人へ ― 図解で覚える基本パターン5つって何？初心者でも分かるように教えて…！
+{< /chat >}
+
+{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+もちろん！Flexboxが分からない人へ ― 図解で覚える基本パターン5つについて、初心者でも分かるように解説するよ。一緒に見ていこう。
+{< /chat >}
+
 
 「Flexboxって便利らしいけど、何がどう動くのか分からない…」
 
@@ -291,6 +300,14 @@ A: IE11はFlexboxの基本的な機能に対応していますが、バグや未
 
 ### Q: `flex: 1` と書くのは何の省略形ですか？
 A: `flex: 1` は `flex-grow: 1; flex-shrink: 1; flex-basis: 0%` の省略形です。「余ったスペースを均等に分け合う」という意味になります。複数の子要素に `flex: 1` を指定すると、すべて同じ幅になります。
+
+{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}
+なるほど…！分かりやすかった。ありがとう！
+{< /chat >}
+
+{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}
+どういたしまして。分からないことがあったらいつでも聞いてね。
+{< /chat >}
 
 ## まとめ
 
