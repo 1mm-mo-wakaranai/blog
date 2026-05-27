@@ -1,7 +1,7 @@
 ---
 title: "【VS Code最新】Agents Windowでローカルai対応！自分のPCでAIモデルを動かす方法"
 date: 2026-05-18
-draft: false
+draft: true
 tags: ["VS Code", "AI", "開発ツール", "ローカルAI"]
 categories: ["プログラミング"]
 description: "VS CodeのAgents Windowがローカルaiモデルに対応。クラウドに送らず自分のPCでAIを動かせるBYOLM機能の概要と設定方法を解説します。"

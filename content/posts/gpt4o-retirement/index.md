@@ -139,7 +139,7 @@ model="o4-mini"
 GitHub Copilotの無料プランについては[こちらの記事](/posts/github-copilot-free/)をご覧ください。
 APIの基本を学びたい方は[APIとは何か？初心者向け解説](/posts/api-what-is-it/)が参考になります。
 JSONの基礎知識は[JSON入門ガイド](/posts/json-what-is-it/)で学べます。
-VS Codeの最新アップデートについては[VS Code 1.18の新機能](/posts/vscode-118-update/)をどうぞ。
+VS Codeの最新アップデートについては[VS Code 1.121の新機能](/posts/vscode-121-update/)をどうぞ。
 パッケージ管理の基本は[npm・yarn入門](/posts/npm-yarn-beginner/)で解説しています。
 
 ## 確認すべきこと2：APIのモデル指定を更新する必要があるか

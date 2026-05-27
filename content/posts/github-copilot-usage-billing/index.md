@@ -141,7 +141,7 @@ VS Code 1.118には、他にも効率化機能が含まれています。
 
 ここで、関連する記事をご紹介します。
 GitHub Copilotの無料プランについては[こちらの記事](/posts/github-copilot-free/)で詳しく解説しています。
-VS Code 1.118の全機能については[アップデート解説記事](/posts/vscode-118-update/)をご覧ください。
+VS Code 1.118の全機能については[アップデート解説記事](/posts/vscode-121-update/)をご覧ください。
 VS Codeのショートカットを覚えたい方は[初心者向けショートカット集](/posts/vscode-shortcuts-beginner/)が参考になります。
 GitHubの基本を学びたい方は[GitHubとは？入門ガイド](/posts/github-what-is-it/)をどうぞ。
 APIの仕組みを理解したい方は[API入門記事](/posts/api-what-is-it/)をお読みください。
@@ -328,6 +328,6 @@ GitHub Educationの特典は継続されます。
 ## あわせて読みたい
 
 - [GitHub Copilot無料プランの始め方と活用法](/posts/github-copilot-free/)
-- [VS Code 1.118の新機能まとめ](/posts/vscode-118-update/)
+- [VS Code 1.121の新機能まとめ](/posts/vscode-121-update/)
 
 

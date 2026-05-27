@@ -3,7 +3,7 @@ title: "【VS Code 1.120】Agents Windowが安定版に！BYOKモデル管理・
 date: 2026-05-22
 tags: ["VS Code", "エディタ", "AIエージェント", "アップデート"]
 description: "VS Code 1.120でAgents Windowが安定版に昇格。BYOKモデルの使用量確認やMarkdown差分プレビューなど、開発者に嬉しい新機能をまとめました"
-draft: false
+draft: true
 ---
 
 ## この記事で分かること
