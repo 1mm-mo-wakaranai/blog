@@ -15,11 +15,11 @@ cover:
 ## この記事で分かること
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-GitHub Copilot CLIの使い方 ― ターミナルで動くAIエージェント入門って何？初心者でも分かるように教えて…！
+GitHub CopilotってVS Code以外でも使えるの？ターミナルでも動くって聞いたんだけど…
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-もちろん！GitHub Copilot CLIの使い方 ― ターミナルで動くAIエージェント入門について、初心者でも分かるように解説するよ。一緒に見ていこう。
+Copilot CLIっていうのがあって、ターミナルでコマンドを提案してくれるんだ。「このコマンド何だっけ」がなくなるよ。
 {{< /chat >}}
 
 

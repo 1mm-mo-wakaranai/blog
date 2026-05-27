@@ -9,11 +9,11 @@ draft: false
 ## この記事で分かること
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-fetch APIが分からない人へ ― APIからデータを取得する基本って何？初心者でも分かるように教えて…！
+外部のAPIからデータを取得したいんだけど、fetchってどうやって使うの？
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-もちろん！fetch APIが分からない人へ ― APIからデータを取得する基本について、初心者でも分かるように解説するよ。一緒に見ていこう。
+fetchはブラウザに標準で入ってるHTTPリクエスト用の関数だよ。axiosとか入れなくても使えるんだ。基本の書き方を見ていこう。
 {{< /chat >}}
 
 
@@ -237,11 +237,11 @@ A: はい、`FormData` オブジェクトを使えばファイルをアップロ
 A: Node.js 18以降では標準で `fetch` が使えます。それ以前のバージョンでは `node-fetch` パッケージをインストールする必要があります。パッケージ管理については[npm/yarnの使い方入門](/posts/npm-yarn-beginner/)を参考にしてください。
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-なるほど…！分かりやすかった。ありがとう！
+fetch().then().then()の流れ、やっと理解できた…！
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-どういたしまして。分からないことがあったらいつでも聞いてね。
+async/awaitと組み合わせるともっと読みやすくなるよ。慣れたらそっちも試してみて。
 {{< /chat >}}
 
 ## まとめ

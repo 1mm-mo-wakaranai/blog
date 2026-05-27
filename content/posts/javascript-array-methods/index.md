@@ -8,11 +8,11 @@ description: "for文を卒業したい人へ。map、filter、reduceの違いと
 ## この記事で分かること
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-配列メソッド入門｜map・filter・reduceの使い方って何？初心者でも分かるように教えて…！
+配列のmap、filter、reduceって何が違うの？for文じゃダメなの？
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-もちろん！配列メソッド入門｜map・filter・reduceの使い方について、初心者でも分かるように解説するよ。一緒に見ていこう。
+for文でも書けるけど、これらのメソッドを使うとコードが短く読みやすくなるんだ。それぞれの使い分けを説明するね。
 {{< /chat >}}
 
 
@@ -189,11 +189,11 @@ A: `find` は条件に合う最初の1つだけを返します。`filter` は条
 A: `push`、`pop`、`splice`、`sort`、`reverse` などは元の配列を変更します。一方、`map`、`filter`、`reduce`、`find`、`slice` は元の配列を変更せず、新しい値を返します。意図しない変更を防ぐため、非破壊的なメソッドを優先して使うのがおすすめです。
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-なるほど…！分かりやすかった。ありがとう！
+filterで絞ってmapで変換、この組み合わせめっちゃ使いそう…！
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-どういたしまして。分からないことがあったらいつでも聞いてね。
+実務で一番よく使うパターンだよ。メソッドチェーンで繋げると、データの加工が直感的に書けるようになる。
 {{< /chat >}}
 
 ## まとめと次のステップ

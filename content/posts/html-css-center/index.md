@@ -9,11 +9,11 @@ draft: false
 ## この記事で分かること
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-中央揃えができないときの解決パターン集 ― 2026年版って何？初心者でも分かるように教えて…！
+要素を中央に配置したいだけなのに全然うまくいかない…。CSSの中央揃えって何種類あるの？
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-もちろん！中央揃えができないときの解決パターン集 ― 2026年版について、初心者でも分かるように解説するよ。一緒に見ていこう。
+実は場面によって使い分けが必要なんだ。テキスト・ブロック要素・Flexbox、3パターン覚えれば大体対応できるよ。
 {{< /chat >}}
 
 
@@ -163,11 +163,11 @@ A: `img` タグはインライン要素なので、親要素に `text-align: cen
 A: `width` を固定値（px）ではなく `max-width` と `%` で指定すると、画面サイズに応じて調整されます。flexboxやgridを使っていれば、基本的にレスポンシブでも中央揃えは維持されます。
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-なるほど…！分かりやすかった。ありがとう！
+place-items: center が最強すぎる…！これだけ覚えておけばいい気がする。
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-どういたしまして。分からないことがあったらいつでも聞いてね。
+Grid + place-items: centerは確かに最強。ただ古いブラウザ対応が必要なときはmargin: autoも使えるようにしておこう。
 {{< /chat >}}
 
 ## まとめと次のステップ

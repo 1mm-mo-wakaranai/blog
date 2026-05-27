@@ -9,11 +9,11 @@ draft: false
 ## この記事で分かること
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-26リリース！Temporal APIがデフォルト有効にって何？初心者でも分かるように教えて…！
+Node.js 26でTemporal APIが使えるようになったって本当？Dateオブジェクトとはおさらば？
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-もちろん！26リリース！Temporal APIがデフォルト有効にについて、初心者でも分かるように解説するよ。一緒に見ていこう。
+まだ実験的機能だけど使えるようになったよ。Dateの「タイムゾーン地獄」から解放される日が近いんだ。
 {{< /chat >}}
 
 
@@ -300,11 +300,11 @@ A: Node.js 26はCurrent版（最新版）としてリリースされています
 A: `Temporal.Now.instant()` が現在時刻のInstant（瞬間）を返します。ミリ秒のタイムスタンプが欲しい場合は `Temporal.Now.instant().epochMilliseconds` を使います。
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-なるほど…！分かりやすかった。ありがとう！
+Temporal.PlainDateでタイムゾーンを気にしなくていいの最高…！
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-どういたしまして。分からないことがあったらいつでも聞いてね。
+日付計算のバグが激減するよ。ただしまだ実験的機能だから、本番投入は安定版を待った方が安全。
 {{< /chat >}}
 
 ## まとめ

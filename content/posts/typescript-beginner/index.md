@@ -9,11 +9,11 @@ draft: false
 ## この記事で分かること
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-TypeScriptとは？JavaScriptとの違いを5分で理解するって何？初心者でも分かるように教えて…！
+TypeScriptって何？JavaScriptと何が違うの？わざわざ覚える必要ある？
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-もちろん！TypeScriptとは？JavaScriptとの違いを5分で理解するについて、初心者でも分かるように解説するよ。一緒に見ていこう。
+JavaScriptに「型」を追加した言語だよ。バグを事前に防げるから、チーム開発では必須になりつつあるんだ。
 {{< /chat >}}
 
 
@@ -180,11 +180,11 @@ A: `ts-node` というツールを使うと、コンパイルなしで直接Type
 A: 一度に全部変える必要はありません。`.js` ファイルを `.ts` にリネームして、少しずつ型を追加していく方法が一般的です。`tsconfig.json` で `allowJs: true` を設定すれば、JSファイルとTSファイルを混在させることもできます。
 
 {{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
-なるほど…！分かりやすかった。ありがとう！
+型をつけるだけでエディタの補完がこんなに賢くなるんだ…！
 {{< /chat >}}
 
 {{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
-どういたしまして。分からないことがあったらいつでも聞いてね。
+開発体験が全然違うよね。最初は面倒に感じるけど、慣れると型なしには戻れなくなるよ。
 {{< /chat >}}
 
 ## まとめと次のステップ
