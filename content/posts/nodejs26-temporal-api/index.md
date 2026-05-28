@@ -16,6 +16,8 @@ Node.js 26でTemporal APIが使えるようになったって本当？Dateオブ
 まだ実験的機能だけど使えるようになったよ。Dateの「タイムゾーン地獄」から解放される日が近いんだ。
 {{< /chat >}}
 
+![Temporal API 理解度の変化](images/comparison-before-after.png)
+
 「Temporal APIって何？Dateオブジェクトと何が違うの？」
 
 2026年5月7日、Node.js 26.0.0がリリースされました。最大の目玉はTemporal APIがデフォルトで有効になったことです。この記事では、Temporal APIの基本と従来のDateオブジェクトとの違いを解説していきます。
@@ -280,6 +282,58 @@ const temporal = Temporal.Now.instant();
 const dateObj = new Date(temporal.epochMilliseconds);
 console.log(dateObj.toISOString());
 ```
+
+## 筆者がハマったポイント
+
+Temporal APIは直感的ですが、Dateオブジェクトに慣れていると逆に混乱するポイントがあります。
+
+### ハマり1: Temporal.PlainDateに時刻を入れようとした
+
+最初にTemporal APIを触ったとき、`Temporal.PlainDate.from("2026-05-07T10:00:00")` と書いてエラーになりました。`PlainDate` は「日付だけ」を扱う型で、時刻情報は受け付けません。時刻も含めたい場合は `PlainDateTime` を使う必要があります。
+
+```javascript
+// NG: PlainDateに時刻を入れようとする
+Temporal.PlainDate.from("2026-05-07T10:00:00"); // エラー
+
+// OK: 日付だけならPlainDate
+Temporal.PlainDate.from("2026-05-07");
+
+// OK: 日付+時刻ならPlainDateTime
+Temporal.PlainDateTime.from("2026-05-07T10:00:00");
+```
+
+**気づき:** Temporalは「日付」「時刻」「日時」「タイムゾーン付き日時」が明確に分かれている。最初に型の使い分けを理解するのが大事。
+
+### ハマり2: Dateの感覚で直接比較した
+
+`if (dateA > dateB)` のように比較演算子を使おうとしたら、期待通りに動きませんでした。Temporal APIのオブジェクトは `Temporal.PlainDate.compare()` を使って比較する設計です。
+
+```javascript
+// NG: 比較演算子は使えない
+const a = Temporal.PlainDate.from("2026-05-07");
+const b = Temporal.PlainDate.from("2026-05-08");
+console.log(a < b); // 期待通りに動かない
+
+// OK: compare()を使う
+const result = Temporal.PlainDate.compare(a, b);
+// -1（aがbより前）、0（同じ）、1（aがbより後）
+```
+
+**改善:** Temporalでは比較は `compare()`、差分は `until()` / `since()` と覚えた。Dateの癖を引きずらないように意識している。
+
+### ハマり3: ポリフィルとネイティブ実装の挙動差
+
+Node.js 26にアップデートする前に `@js-temporal/polyfill` で開発していたコードを、ネイティブ実装に切り替えたら一部の挙動が変わりました。特に `toString()` のフォーマットや、エッジケース（うるう秒の扱いなど）で微妙な差がありました。
+
+**気づき:** ポリフィルからネイティブに移行するときは、テストを全部通してから切り替える。「同じAPIだから大丈夫」と油断しない。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+PlainDateとPlainDateTimeの使い分け、最初は混乱しそうだけど慣れれば逆に分かりやすいかも。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+Dateオブジェクトが「何でも1つの型に詰め込む」設計だったのに対して、Temporalは「用途ごとに型を分ける」設計。最初だけ覚えれば後がラクだよ。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
