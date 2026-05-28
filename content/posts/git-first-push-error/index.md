@@ -16,6 +16,8 @@ git pushしたらエラーになった…。rejected って何？どうすれば
 初めてのpushでよく出るエラーだね。リモートとローカルの履歴がずれてるのが原因。解決方法は簡単だよ。
 {{< /chat >}}
 
+![git pushエラー 理解度の変化](images/comparison-before-after.png)
+
 ターミナルで `git push` したら、こんなエラーが出た。
 
 ```
@@ -116,6 +118,36 @@ git remote add origin https://github.com/ユーザー名/リポジトリ名.git
 ```
 
 GitHub Pagesでサイトを公開する場合など、pushは頻繁に使う操作です。[GitHub Pagesで無料でサイトを公開する方法](/posts/github-pages-deploy/)も参考にしてみてください。
+
+## 筆者がハマったポイント
+
+git pushのエラーは初心者が最も焦るポイントの1つです。筆者も何度もやらかしました。
+
+### ハマり1: パニックで `git push -f` を使ってしまった
+
+初めてrejectedエラーに遭遇したとき、StackOverflowで「`git push -f` で解決」という回答を見つけて実行。チーム開発だったので、同僚の2日分のコミットを上書きしてしまいました。幸い同僚のローカルに残っていたので復元できましたが、「force pushは最終手段」と身をもって学びました。
+
+**気づき:** エラーが出たら、まず `git pull` を試す。`-f` は「自分しか使っていないブランチ」以外では絶対に使わない。
+
+### ハマり2: READMEの自動生成を忘れていた
+
+GitHubでリポジトリを作るときに「Add a README file」にチェックを入れたのを忘れて、ローカルで `git init` → `git push` したらrejected。原因が分からず30分悩みました。
+
+**改善:** リポジトリを作るときは「READMEを自動生成しない」か、生成した場合は最初に `git pull` してからローカルで作業を始めるようにしています。
+
+### ハマり3: ブランチ名の不一致に気づかなかった
+
+ローカルのデフォルトブランチが `master` で、GitHubのデフォルトが `main` だった。`git push origin main` しても「Everything up-to-date」と言われるのに、GitHub上に反映されない。`git branch -a` で確認してようやく気づきました。
+
+**改善:** `git config --global init.defaultBranch main` を設定して、ローカルのデフォルトブランチ名を `main` に統一しました。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+force pushで同僚のコード消しちゃうの怖すぎる…。まずpullするって覚えた！
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+「rejectedが出たらgit pull」これだけ覚えておけば大丈夫。焦らないのが一番大事だよ。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
