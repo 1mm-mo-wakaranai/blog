@@ -166,7 +166,9 @@ body {
   font-weight: 500;
 }
 
-/* 目次 */
+/* ========================================
+   目次（ToC）カスタマイズ
+   ======================================== */
 .toc {
   background: var(--green-light);
   border: 2px solid #d4edda;
@@ -178,6 +180,62 @@ body {
   font-weight: 700;
   color: var(--green);
   cursor: pointer;
+  font-size: 1rem;
+  padding: 0.3rem 0;
+}
+
+.toc details summary::marker {
+  color: var(--green);
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+.toc > details > nav > ul > li {
+  margin-bottom: 0.2rem;
+}
+
+.toc > details > nav > ul > li > a {
+  display: block;
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.toc > details > nav > ul > li > a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* h3リンク */
+.toc ul ul {
+  padding-left: 1rem;
+  margin: 0.1rem 0;
+}
+
+.toc ul ul li a {
+  display: block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  color: var(--text-sub);
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.toc ul ul li a:hover {
+  background: #f0f9f0;
+  color: var(--green);
 }
 
 /* テーブル */
