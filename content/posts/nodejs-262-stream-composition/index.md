@@ -137,6 +137,8 @@ Node.js 26.0.0で追加されたTemporal APIについては[Node.js 26 Temporal 
 
 ## アップデート方法
 
+![アップデート方法](images/step-guide.png)
+
 ### nvmを使っている場合
 
 ```bash
@@ -175,6 +177,8 @@ Node.js 26系はまだ「Current」ステータスです。本番環境では引
 | **26.2.0** | **5月20日** | **Stream Composition安定化、HTTP 1xx、Temporal fs対応** |
 
 ## よくある質問（FAQ）
+
+![この記事のポイント](images/point-takeaway.png)
 
 ### Q: Node.js 26.2.0は安定版ですか？
 

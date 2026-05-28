@@ -104,6 +104,8 @@ TypeScript 5.x → 6.0（JS版最終） → 7.0（Go版）
 
 ## 試してみる方法
 
+![試してみる方法](images/step-guide.png)
+
 ### VS Codeで試す
 
 1. VS Codeの拡張機能マーケットプレイスを開く
@@ -125,6 +127,8 @@ npx tsc --noEmit
 npmの使い方が分からない方は[npm/yarn入門記事](/posts/npm-yarn-beginner/)を参考にしてください。
 
 ## 移行時の注意点
+
+![移行時の注意点](images/point-summary.png)
 
 ### プラグイン・ツールの互換性
 

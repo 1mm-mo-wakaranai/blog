@@ -210,6 +210,8 @@ docker run -it python:3.15-rc python
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: 今すぐPython 3.15にアップグレードすべき？
 
 A: いいえ。beta版は検証用です。本番環境ではPython 3.14系を使い続けてください。正式リリース後も、ライブラリの対応状況を確認してからアップグレードするのが安全です。

@@ -31,6 +31,8 @@ aliasを設定すれば、長いコマンドを短い名前で呼び出せるよ
 
 ## 設定方法
 
+![設定方法](images/step-guide.png)
+
 VS Codeのターミナル（`` Ctrl + ` `` で開けます）でもエイリアスは使えます。[VS Codeの設定とショートカット](/posts/vscode-shortcuts-beginner/)と組み合わせると、開発効率がさらに上がります。
 
 ### Mac / Linux の場合
@@ -123,6 +125,8 @@ function proj { Set-Location ~/projects }
 Python系のエイリアスは仮想環境の操作を短縮できて便利です。仮想環境の詳しい使い方は[Python仮想環境（venv）の使い方入門](/posts/python-venv-beginner/)で解説しています。
 
 ## 注意点
+
+![注意点](images/point-summary.png)
 
 - 既存のコマンド名と被らないようにする（`ls` を別のものに上書きしない）
 - チームで作業するときは、エイリアスに頼りすぎない（他の人のPCでは使えない）

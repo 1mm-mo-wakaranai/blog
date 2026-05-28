@@ -219,6 +219,8 @@ VS Codeを使っている場合は、コンフリクト箇所に「Accept Curren
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: ブランチ名を間違えて作ってしまいました。変更できますか？
 
 A: `git branch -m 旧ブランチ名 新ブランチ名` で変更できます。今いるブランチの名前を変えるなら `git branch -m 新ブランチ名` だけでOKです。

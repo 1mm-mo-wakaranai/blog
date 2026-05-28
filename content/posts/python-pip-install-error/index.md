@@ -162,6 +162,8 @@ pip install パッケージ名==バージョン番号
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: `pip` と `pip3` はどう違いますか？
 
 A: `pip` はPython 2系、`pip3` はPython 3系に紐づいていることが多いです。ただし環境によって異なるため、`python -m pip install` を使うのが最も確実です。どのPythonに対してインストールしているかが明確になります。

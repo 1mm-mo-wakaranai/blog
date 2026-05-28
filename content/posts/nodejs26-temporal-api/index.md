@@ -284,6 +284,8 @@ console.log(dateObj.toISOString());
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: Temporal APIはNode.js 26以外でも使えますか？
 A: ブラウザではまだ実装が進行中です。ChromeやFirefoxで段階的にサポートが追加されています。Node.js 26が最初にデフォルト有効にした主要ランタイムです。ブラウザで使いたい場合は `@js-temporal/polyfill` パッケージが利用できます。
 

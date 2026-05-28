@@ -33,6 +33,8 @@ Flexboxの基本については[CSS Flexbox入門](/posts/css-flexbox-beginner/)
 
 ## 手順
 
+![手順](images/step-guide.png)
+
 ### ステップ1: 基本のGridを作る
 
 まず、3列のグリッドを作ってみます。

@@ -38,6 +38,8 @@ JavaScriptの非同期処理については[async/awaitの使い方入門](/post
 
 ## 手順
 
+![手順](images/step-guide.png)
+
 ### ステップ1: 「型」とは何かを理解する
 
 JavaScriptでは、変数にどんな値でも入れられます。
@@ -158,6 +160,8 @@ TypeScriptはJavaScriptの「上位互換」です。
 VS Codeを使っている場合、TypeScriptの型チェックはエディタ上でリアルタイムに表示されます。[VS Codeの設定とショートカット](/posts/vscode-shortcuts-beginner/)を参考に環境を整えておくと、開発体験がさらに良くなります。
 
 ## よくある質問（FAQ）
+
+![この記事のポイント](images/point-takeaway.png)
 
 ### Q: TypeScriptを使うにはJavaScriptを先に覚える必要がありますか？
 

@@ -142,6 +142,8 @@ python -m venv .venv --clear
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: GCが変わると自分のコードを書き直す必要がありますか？
 A: いいえ。GCはPythonが内部で自動的に処理するため、通常のコードに変更は不要です。
 

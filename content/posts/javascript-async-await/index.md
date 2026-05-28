@@ -221,6 +221,8 @@ async function example() {
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: async/awaitとPromiseの`.then()`はどちらを使うべきですか？
 
 A: 基本的にはasync/awaitが読みやすくておすすめです。ただし、`Promise.all` のように複数の非同期処理を並列実行する場合は、Promiseの機能と組み合わせて使います。どちらか一方ではなく、場面に応じて使い分けるのがベストです。

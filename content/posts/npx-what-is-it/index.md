@@ -205,6 +205,8 @@ npm run dev
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: npxとnpm execは同じですか？
 
 A: ほぼ同じです。npm 7以降では `npm exec` コマンドが追加され、npxと同じ機能を持っています。npxの方が短くて打ちやすいので、npxを使う人が多いです。

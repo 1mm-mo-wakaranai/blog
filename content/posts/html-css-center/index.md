@@ -142,6 +142,8 @@ align-items: center;
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: `text-align: center` と `margin: auto` の違いは何ですか？
 
 A: `text-align: center` はテキストやインライン要素を水平方向に中央揃えします。`margin: auto` はブロック要素（`div` など）を水平方向に中央揃えします。対象となる要素の種類が異なるので、使い分けが必要です。

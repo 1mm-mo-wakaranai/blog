@@ -220,6 +220,8 @@ npm init -y
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: package.jsonがないとどうなりますか？
 
 A: `npm install` が実行できません。Node.jsプロジェクトとして認識されないので、まず `npm init -y` で作成しましょう。

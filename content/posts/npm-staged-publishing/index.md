@@ -115,6 +115,8 @@ npm stage reject <package>@<version>
 
 ## 設定方法
 
+![設定方法](images/step-guide.png)
+
 ### 前提条件
 
 - npm CLI の最新版（`npm stage`コマンドが含まれるバージョン）
@@ -259,6 +261,8 @@ npm ERR! You do not have permission to approve this package.
 staged publishingを使う前に、package.jsonの構造を理解しておくとスムーズです。[package.json入門記事](/posts/package-json-beginner/)で基本を確認できます。
 
 ## よくある質問（FAQ）
+
+![この記事のポイント](images/point-takeaway.png)
 
 ### Q: 全てのパッケージに強制されますか？
 

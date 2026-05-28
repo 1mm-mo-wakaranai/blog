@@ -33,6 +33,8 @@ draft: false
 
 ## 手順
 
+![手順](images/step-guide.png)
+
 ### ステップ1: スクリプトファイルを作る
 
 好きな場所に `organize.py` というファイルを作り、以下のコードを書きます。
@@ -218,6 +220,8 @@ if __name__ == "__main__":
 ```
 
 ## よくある質問（FAQ）
+
+![この記事のポイント](images/point-takeaway.png)
 
 ### Q: スクリプトを実行したら「Permission denied」と出ました。どうすればいいですか？
 

@@ -114,6 +114,8 @@ npm init -y
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: npm installとnpm ciの違いは何ですか？
 A: `npm install` は `package.json` を元にライブラリをインストールし、`package-lock.json` を更新します。`npm ci` は `package-lock.json` を元に厳密にインストールし、ロックファイルを変更しません。CI/CD環境やチーム開発では `npm ci` を使うのが安全です。
 

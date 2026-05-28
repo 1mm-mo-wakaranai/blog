@@ -216,6 +216,8 @@ SyntaxError: await is only valid in async functions
 
 ## よくある質問（FAQ）
 
+![この記事のポイント](images/point-takeaway.png)
+
 ### Q: fetchとaxiosの違いは何ですか？
 
 A: `fetch` はブラウザに標準で組み込まれている機能で、追加のインストールは不要です。`axios` は外部ライブラリで、レスポンスの自動JSON変換やリクエストのキャンセルなど、便利な機能が追加されています。小規模なプロジェクトなら `fetch` で十分です。
