@@ -21,6 +21,8 @@ draft: false
 └── その他/      ← 上記に当てはまらないもの
 ```
 
+![Python自動ファイル整理 理解度の変化](images/comparison-before-after.png)
+
 {{< ad >}}
 
 ## 必要なもの
@@ -213,6 +215,52 @@ if __name__ == "__main__":
     print("-" * 40)
     print(f"完了！ {count} 個のファイルを整理しました。")
 ```
+
+## 筆者がハマったポイント
+
+ファイル整理スクリプトは簡単に見えますが、実際に使い始めると予想外のトラブルに遭遇しました。
+
+### ハマり1: 開いているファイルを移動しようとしてエラー
+
+Excelで開いているファイルを移動しようとして `PermissionError` が出ました。Windowsでは、アプリケーションが使用中のファイルはロックされるため、`shutil.move()` が失敗します。最初は「スクリプトが壊れた」と思って焦りましたが、Excelを閉じたら正常に動きました。
+
+```python
+# 対策: try-exceptでエラーをスキップする
+try:
+    shutil.move(str(file_path), str(dest_path))
+except PermissionError:
+    print(f"  スキップ（使用中）: {file_path.name}")
+```
+
+**気づき:** ファイル操作系のスクリプトでは `try-except` でエラーハンドリングするのが必須。使用中のファイルは必ず存在する。
+
+### ハマり2: ダウンロード途中のファイルを移動してしまった
+
+ブラウザでファイルをダウンロード中にスクリプトを実行したら、`.crdownload`（Chrome）や `.part`（Firefox）という一時ファイルが「その他」フォルダに移動されてしまいました。ダウンロードが完了しても、元の場所にファイルがないので見つからない状態に。
+
+**改善:** ダウンロード中の一時ファイル拡張子（`.crdownload`, `.part`, `.tmp`）をスキップ対象に追加した。
+
+```python
+# スキップする拡張子
+SKIP_EXTENSIONS = [".crdownload", ".part", ".tmp", ".download"]
+
+if file_path.suffix.lower() in SKIP_EXTENSIONS:
+    continue
+```
+
+### ハマり3: PATH_DIRのパスを間違えてデスクトップが空に
+
+`TARGET_DIR` を `Path.home() / "Desktop"` に変更してテストしたら、デスクトップのファイルが全部サブフォルダに移動されてしまいました。ショートカットファイル（`.lnk`）まで移動されて、デスクトップが真っ白に。元に戻すのに30分かかりました。
+
+**気づき:** ファイル移動スクリプトは、最初に `print` だけで「何が移動されるか」を確認してから実行する。いきなり `shutil.move()` しない。ドライラン（実行せずに確認だけ）の仕組みを入れておくと安全。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+デスクトップが空になるの怖すぎる…。ドライランの仕組み、絶対入れておこう。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+ファイル操作系のスクリプトは「取り返しがつかない」操作だから、慎重にテストするのが大事。最初はprintだけで確認する癖をつけよう。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
