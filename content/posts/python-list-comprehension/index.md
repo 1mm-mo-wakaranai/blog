@@ -16,6 +16,8 @@ draft: false
 for文を1行で書ける構文だよ。慣れると読みやすいし、実行速度も少し速いんだ。
 {{< /chat >}}
 
+![リスト内包表記 理解度の変化](images/comparison-before-after.png)
+
 「リスト内包表記って何？普通のfor文と何が違うの？」
 
 リスト内包表記の読み方・書き方・使いどころを、for文との比較で解説します。Pythonの環境構築がまだの方は、[Python仮想環境（venv）の使い方](/posts/python-venv-beginner/)を先に読んでおくとスムーズです。
@@ -220,6 +222,65 @@ for x in range(5):
 | 条件が複雑 | for文 |
 | 副作用がある（print, ファイル書き込み等） | for文 |
 | ネストが2段以上 | for文 |
+
+## 筆者がハマったポイント
+
+リスト内包表記は便利ですが、最初は「読めない・書けない・デバッグできない」の三重苦でした。
+
+### ハマり1: if-elseの位置を間違えてSyntaxError
+
+フィルタ（ifだけ）と条件分岐（if-else）で、`if` を書く位置が違うことに気づかず、何度もSyntaxErrorを出しました。
+
+```python
+# NG: if-elseをforの後に書いてしまう
+result = [n for n in numbers if n > 0 else -n]  # SyntaxError!
+
+# OK: if-elseはforの前
+result = [n if n > 0 else -n for n in numbers]
+
+# OK: ifだけ（フィルタ）はforの後
+result = [n for n in numbers if n > 0]
+```
+
+**気づき:** 「フィルタ（要素を選ぶ）→ forの後」「変換（値を変える）→ forの前」と覚えたら間違えなくなった。
+
+### ハマり2: 内包表記の中でデバッグできない
+
+リスト内包表記の中で何が起きているか分からず、バグの原因が特定できませんでした。for文なら途中に `print()` を入れてデバッグできますが、内包表記では1行なのでそれができません。
+
+```python
+# デバッグしたいとき → 一度for文に展開する
+# 内包表記
+result = [process(x) for x in data if validate(x)]
+
+# デバッグ用にfor文に展開
+result = []
+for x in data:
+    print(f"x={x}, validate={validate(x)}")  # ← デバッグ用
+    if validate(x):
+        result.append(process(x))
+```
+
+**改善:** 内包表記でバグったら、まずfor文に展開してデバッグする。動いたら内包表記に戻す。この手順を覚えてから効率が上がった。
+
+### ハマり3: 複雑にしすぎてチームメンバーに怒られた
+
+リスト内包表記に慣れてきた頃、調子に乗って2重ネスト＋条件付きの内包表記を書いたら、コードレビューで「読めない」と差し戻されました。
+
+```python
+# 自分では読めるけど、他人には読めない例
+result = [item.name for group in groups for item in group.items if item.active and item.score > 80]
+```
+
+**気づき:** 「自分が読める」と「チームが読める」は別。1行が長くなったら素直にfor文に戻す。目安は「80文字を超えたらfor文を検討」。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+if-elseの位置、私も絶対間違えそう…。「フィルタは後、変換は前」って覚えよう。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+最初はfor文で書いて、動いたら内包表記に書き換える練習をすると自然に身につくよ。無理に1行にしなくてOK。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
