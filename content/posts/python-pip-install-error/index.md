@@ -16,6 +16,8 @@ pip installしたらエラーが出た…。何が原因なの？
 pip installのエラーは原因が色々あるんだ。よくあるパターンと対処法をまとめたから、自分のエラーに当てはまるか見てみて。
 {{< /chat >}}
 
+![pip installエラー対処 理解度の変化](images/comparison-before-after.png)
+
 `pip install` したらエラーが出た。何が起きているのか分からない。
 
 この記事では、pip installでよく出るエラーを5つ取り上げて、それぞれの原因と解決方法を説明します。
@@ -157,6 +159,36 @@ python -m pip install --upgrade pip setuptools wheel
 ```bash
 pip install パッケージ名==バージョン番号
 ```
+
+## 筆者がハマったポイント
+
+ここからは、僕自身がpip installで実際にハマった経験を共有します。同じ状況になったとき、参考にしてみてください。
+
+### 失敗談1: sudoで強引にインストールして環境が壊れた
+
+初心者の頃、Permission deniedが出るたびに `sudo pip install` で無理やりインストールしていました。結果、システムのPythonライブラリが上書きされて、OSのツール（apt等）が動かなくなりました。復旧に丸一日かかりました。
+
+**気づき:** sudoでpip installは絶対にやらない。仮想環境を使うか、`--user`オプションで対処する。
+
+### 失敗談2: パッケージ名のハイフンとアンダースコアで30分悩んだ
+
+`pip install python-dotenv` が正しいのに、`pip install python_dotenv` と打ってしまい「No matching distribution found」が出続けました。PyPIで検索すれば一瞬で分かることなのに、スペルミスを疑わず環境のせいだと思い込んで時間を浪費しました。
+
+**気づき:** エラーが出たらまずPyPI（https://pypi.org）で正式なパッケージ名を確認する。
+
+### 失敗談3: グローバルにインストールしたのに「モジュールが見つからない」
+
+VS Codeのターミナルで `pip install requests` したのに、スクリプトを実行すると `ModuleNotFoundError` が出る。原因は、VS Codeが使っているPythonと、pipが紐づいているPythonが別物だったこと。`python -m pip install` に変えたら一発で解決しました。
+
+**改善:** 常に `python -m pip install` を使う癖をつけた。どのPythonにインストールしているか明確になる。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+sudoで無理やりインストールするのはダメなんだ…。仮想環境って本当に大事なんだね。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+一度環境を壊すと復旧が大変だからね。最初から仮想環境を使う習慣をつけておけば、こういうトラブルとは無縁になるよ。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
