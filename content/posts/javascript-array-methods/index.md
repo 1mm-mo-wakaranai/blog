@@ -15,6 +15,8 @@ description: "for文を卒業したい人へ。map、filter、reduceの違いと
 for文でも書けるけど、これらのメソッドを使うとコードが短く読みやすくなるんだ。それぞれの使い分けを説明するね。
 {{< /chat >}}
 
+![JavaScript配列メソッド 理解度の変化](images/comparison-before-after.png)
+
 JavaScriptの配列メソッド `map`、`filter`、`reduce` の使い方が分かります。
 
 「for文で書けるけど、もっとスマートに書きたい」という人向けです。[TypeScriptを始めるべき理由](/posts/typescript-beginner/)を読んでおくと、型付きの配列操作も理解しやすくなります。
@@ -166,6 +168,46 @@ console.log(has3); // true
 | 条件に合う最初の1つ | `find` |
 | 1つでも条件を満たすか | `some` |
 | 全部が条件を満たすか | `every` |
+
+## 筆者がハマったポイント
+
+配列メソッドは慣れると手放せませんが、最初は混乱しました。
+
+### ハマり1: mapの中で条件分岐してundefinedだらけの配列を作った
+
+「偶数だけ2倍にしたい」と思って `map` の中に `if` を書いたら、奇数の要素が `undefined` になった配列が返ってきました。`map` は必ず同じ長さの配列を返すので、条件で絞りたいなら `filter` を先に使うべきでした。
+
+```javascript
+// NG: undefinedが混ざる
+const result = [1, 2, 3, 4].map(n => { if (n % 2 === 0) return n * 2; });
+// [undefined, 4, undefined, 8]
+
+// OK: filterしてからmap
+const result = [1, 2, 3, 4].filter(n => n % 2 === 0).map(n => n * 2);
+// [4, 8]
+```
+
+**気づき:** map=変換、filter=絞り込み。役割を混ぜない。
+
+### ハマり2: reduceの初期値を忘れて空配列でエラー
+
+`reduce` で合計を計算するコードを書いたのに、空配列を渡したら `TypeError: Reduce of empty array with no initial value` というエラー。初期値（第2引数）を指定していなかったのが原因です。
+
+**改善:** `reduce` を使うときは必ず初期値を指定する。`arr.reduce((sum, n) => sum + n, 0)` の `0` を忘れない。
+
+### ハマり3: メソッドチェーンが長すぎてデバッグ不能に
+
+`.filter().map().reduce()` を1行で書いたら、途中でどの段階のデータがおかしいのか分からなくなりました。
+
+**改善:** 開発中は各ステップを変数に分けて、`console.log` で中間結果を確認する。完成したらチェーンにまとめる。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+mapとfilterを混同してた…！「変換」と「絞り込み」で覚えればいいんだね。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+そう、map=全部変換、filter=条件で絞る、reduce=1つにまとめる。この3つの役割を分けて考えるのがコツだよ。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
