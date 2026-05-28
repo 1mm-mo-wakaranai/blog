@@ -16,6 +16,8 @@ draft: false
 実は場面によって使い分けが必要なんだ。テキスト・ブロック要素・Flexbox、3パターン覚えれば大体対応できるよ。
 {{< /chat >}}
 
+![CSS中央揃え 理解度の変化](images/comparison-before-after.png)
+
 CSSで何かを「真ん中に置きたい」だけなのに、なぜかうまくいかない。
 
 ```css
@@ -137,6 +139,36 @@ align-items: center;
 ```
 
 この3行を覚えておけば、ほとんどの中央揃えは解決します。
+
+## 筆者がハマったポイント
+
+CSS中央揃えは「簡単そうで奥が深い」代表格です。
+
+### ハマり1: margin: auto が効かなくて2時間悩んだ
+
+`div` を中央に配置したくて `margin: 0 auto;` を書いたのに、全く動かない。原因は `width` を指定していなかったこと。`margin: auto` はブロック要素に幅が設定されていないと効きません。幅100%の要素に「左右の余白を均等に」と言っても、余白がゼロなので何も起きないのです。
+
+**気づき:** `margin: auto` を使うときは必ず `width`（または `max-width`）をセットで指定する。
+
+### ハマり2: 縦方向の中央揃えで地獄を見た
+
+横方向は `text-align: center` で簡単にできるのに、縦方向の中央揃えが全く分からない。`vertical-align: middle` を試しても効かない（これはインライン要素用）。結局、Flexboxの `align-items: center` を知るまで1日かかりました。
+
+**改善:** 縦横中央揃えは「Flexbox + justify-content + align-items」の3行セットで覚える。これだけで9割のケースに対応できる。
+
+### ハマり3: position: absolute で中央にしたら親要素からはみ出した
+
+`position: absolute; left: 50%;` で中央に配置したつもりが、要素の左端が中央に来るだけで、要素自体は右にずれている。`transform: translateX(-50%)` を追加して初めて正しく中央に配置できました。
+
+**改善:** `position: absolute` で中央配置するときは `left: 50%; transform: translateX(-50%)` をセットで使う。ただし、今はFlexboxやGridを使う方がシンプル。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+margin: autoにwidthが必要だったの知らなかった…！そりゃ効かないわけだ。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+CSSの中央揃えは「なぜ効かないか」を理解すると、正しい方法が自然と選べるようになるよ。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
