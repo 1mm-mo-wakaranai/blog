@@ -16,6 +16,8 @@ npmとyarnって何が違うの？どっちを使えばいいの？
 どっちもパッケージマネージャーで、できることはほぼ同じ。チームで統一されてるならそれに合わせればOKだよ。
 {{< /chat >}}
 
+![npm/yarn 理解度の変化](images/comparison-before-after.png)
+
 「npm install って何をしているの？」「yarnって何？npmと何が違うの？」
 
 JavaScriptの開発を始めると必ず出会う「npm」と「yarn」を、ゼロから解説します。
@@ -110,6 +112,43 @@ npm uninstall ライブラリ名
 # プロジェクトを初期化（package.jsonを作る）
 npm init -y
 ```
+
+## 筆者がハマったポイント
+
+npmは「簡単」と言われがちですが、初心者のころは地味なところでつまずきました。
+
+### ハマり1: npmとyarnを混ぜて使ってしまった
+
+プロジェクトに `package-lock.json` があるのに、ネットの記事を見て `yarn add` でライブラリを追加してしまいました。すると `yarn.lock` も生成されて、ロックファイルが2つ存在する状態に。チームメンバーが `npm install` したら依存関係が壊れて、全員の環境で動かなくなりました。
+
+**気づき:** プロジェクトに `package-lock.json` があればnpm、`yarn.lock` があればyarn。絶対に混ぜない。迷ったらロックファイルを見る。
+
+### ハマり2: node_modulesをGitHubにpushしてしまった
+
+初めてのプロジェクトで `.gitignore` を設定し忘れて、`node_modules` フォルダ（数万ファイル）をそのままGitHubにpushしてしまいました。リポジトリのサイズが500MB超えになり、cloneに10分以上かかる状態に。後から `.gitignore` に追加しても、すでにコミットされたファイルは消えません。
+
+```bash
+# 後からnode_modulesをGit管理から外す方法
+echo "node_modules/" >> .gitignore
+git rm -r --cached node_modules
+git commit -m "remove node_modules from tracking"
+```
+
+**改善:** プロジェクトを作ったら最初に `.gitignore` を設定する。`npm init` の直後にやるのを習慣にした。
+
+### ハマり3: `npm install` と `npm ci` の違いを知らずにCI/CDが不安定に
+
+GitHub Actionsで `npm install` を使っていたら、ある日突然テストが落ちるようになりました。原因は、`npm install` がロックファイルを更新してしまい、ローカルとCI環境でライブラリのバージョンが微妙にずれていたこと。`npm ci` に変えたら安定しました。
+
+**気づき:** CI/CD環境では必ず `npm ci` を使う。`npm install` はロックファイルを書き換える可能性があるので、再現性が保証されない。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+npmとyarn混ぜちゃダメなんだ…。ロックファイルを確認する癖をつけよう。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+ロックファイルは「このバージョンで動く」という保証書。混ぜると保証が壊れるから、プロジェクトごとに統一するのが鉄則だよ。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
