@@ -16,6 +16,8 @@ draft: false
 プロジェクトごとにパッケージのバージョンを分離する仕組みだよ。これがないと、プロジェクトAとBで必要なバージョンが衝突しちゃうんだ。
 {{< /chat >}}
 
+![Python仮想環境入門 理解度の変化](images/comparison-before-after.png)
+
 Pythonでコードを実行したら、こんなエラーが出た。
 
 ```
@@ -114,6 +116,36 @@ deactivate
 ```
 
 これだけです。
+
+## 筆者がハマったポイント
+
+仮想環境は簡単なようで、最初は地味にハマるポイントがあります。僕の失敗談を紹介します。
+
+### 失敗談1: activateし忘れてグローバルにインストールし続けた
+
+`python -m venv .venv` で仮想環境を作ったのに、activateせずに `pip install` していました。当然グローバルにインストールされるので、プロジェクトを別PCに移したら全く動かない。requirements.txtも空っぽで、何をインストールしたか分からなくなりました。
+
+**気づき:** ターミナルの先頭に `(.venv)` が表示されているか必ず確認する。表示されていなければactivateされていない。
+
+### 失敗談2: .venvフォルダをGitにコミットしてリポジトリが巨大に
+
+.gitignoreに `.venv/` を追加し忘れて、数百MBの仮想環境フォルダをそのままGitHubにpushしてしまいました。クローンに10分以上かかるリポジトリが出来上がり、チームメンバーに怒られました。
+
+**改善:** プロジェクト作成時に最初にやることリストに「.gitignoreに.venv/を追加」を入れた。`pip freeze > requirements.txt` でライブラリ一覧だけ管理する。
+
+### 失敗談3: Pythonのバージョン違いでvenvが壊れた
+
+Python 3.10で作った仮想環境を、Python 3.12にアップデートした後もそのまま使おうとしたら、importエラーが頻発。仮想環境は作成時のPythonバージョンに紐づいているので、Pythonをアップデートしたら仮想環境も作り直す必要がありました。
+
+**気づき:** Pythonのメジャーバージョンを変えたら、`.venv` を削除して `python -m venv .venv` で作り直す。requirements.txtがあれば `pip install -r requirements.txt` で一発復元できる。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+activateし忘れるの、私もやりそう…。ターミナルの表示を確認する癖をつけなきゃ。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+VS Codeなら自動でactivateしてくれるから、エディタ内のターミナルを使うのが一番確実だよ。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
