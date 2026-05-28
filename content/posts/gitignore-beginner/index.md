@@ -16,7 +16,6 @@ draft: false
 node_modulesとか.envとか、GitHubに上げちゃいけないファイルがあるんだ。それを自動で除外してくれる設定ファイルだよ。
 {{< /chat >}}
 
-
 「node_modulesをGitHubにpushしてしまった」「.envファイルにAPIキーを書いたまま公開してしまった」
 
 こうしたミスを防ぐのが `.gitignore` ファイルです。この記事では、.gitignoreの書き方と、よく使うパターンを解説します。
@@ -373,5 +372,4 @@ node_modulesをpushしちゃう前に知れてよかった…！
 ### あわせて読みたい
 - [GitHubとは？アカウント作成から最初のリポジトリまで](/posts/github-what-is-it/)
 - [Gitブランチの基本 ― 初心者向けに使い方を解説](/posts/git-branch-beginner/)
-
 

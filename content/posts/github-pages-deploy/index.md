@@ -16,7 +16,6 @@ draft: false
 GitHubにリポジトリを作ってpushするだけで公開できるよ。サーバー代ゼロで自分のサイトが持てるんだ。
 {{< /chat >}}
 
-
 「作ったWebページをインターネットに公開したいけど、サーバー代がかかるのは嫌」
 
 GitHub Pagesなら、完全無料でHTMLサイトを公開できます。
@@ -213,5 +212,4 @@ pushしたら本当に公開された…！無料でこれはすごい。
 ### あわせて読みたい
 - [GitHubとは何か ― アカウント作成から最初のリポジトリまで](/posts/github-what-is-it/)
 - [git pushでrejectedエラーが出たときの対処法](/posts/git-first-push-error/)
-
 

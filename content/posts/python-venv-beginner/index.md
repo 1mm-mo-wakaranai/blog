@@ -16,7 +16,6 @@ draft: false
 プロジェクトごとにパッケージのバージョンを分離する仕組みだよ。これがないと、プロジェクトAとBで必要なバージョンが衝突しちゃうんだ。
 {{< /chat >}}
 
-
 Pythonでコードを実行したら、こんなエラーが出た。
 
 ```
@@ -28,7 +27,6 @@ ModuleNotFoundError: No module named 'requests'
 この記事では、このエラーの原因と「仮想環境」を使った根本的な解決方法を説明します。
 
 pip installでエラーが出ている場合は、[pip installでエラーが出たときの対処法まとめ](/posts/python-pip-install-error/)もあわせて確認してみてください。
-
 
 {{< ad >}}
 
@@ -161,5 +159,4 @@ python -m venv .venv で作って、activateするだけなんだ…！思った
 ### あわせて読みたい
 - [pip installでエラーが出たときの対処法まとめ](/posts/python-pip-install-error/)
 - [ダウンロードフォルダを自動整理するPythonスクリプトの作り方](/posts/python-auto-file-organizer/)
-
 

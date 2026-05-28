@@ -15,7 +15,6 @@ Flexboxは覚えたけど、2次元のレイアウトってどうやるの？Gri
 Flexboxが1次元（横 or 縦）なら、Gridは2次元（横と縦を同時に）制御できるんだ。実はFlexboxより直感的な部分もあるよ。
 {{< /chat >}}
 
-
 CSS Gridの基本的な使い方と、Flexboxとの使い分けを理解できます。
 
 「Flexboxは分かるけど、Gridはいつ使えばいいの？」という疑問を解消します。
@@ -249,5 +248,4 @@ grid-template-columnsだけでこんなにきれいに並ぶんだ…！
 ### あわせて読みたい
 - [CSS Flexbox入門 ― 横並びレイアウトの基本](/posts/css-flexbox-beginner/)
 - [CSSで中央揃えする方法まとめ](/posts/html-css-center/)
-
 

@@ -16,7 +16,6 @@ draft: false
 fetchはブラウザに標準で入ってるHTTPリクエスト用の関数だよ。axiosとか入れなくても使えるんだ。基本の書き方を見ていこう。
 {{< /chat >}}
 
-
 「fetchって何？APIからデータを取るってどういうこと？」
 
 fetch APIの基本から、実際にデータを取得して画面に表示するまでを解説します。
@@ -258,5 +257,4 @@ async/awaitと組み合わせるともっと読みやすくなるよ。慣れた
 ### あわせて読みたい
 - [async/awaitが分からない人へ ― 非同期処理を図解で理解](/posts/javascript-async-await/)
 - [CORSエラーが出たときの対処法 ― 初心者が最初にハマる壁](/posts/cors-error-beginner/)
-
 

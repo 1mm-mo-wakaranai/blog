@@ -16,7 +16,6 @@ TypeScriptって何？JavaScriptと何が違うの？わざわざ覚える必要
 JavaScriptに「型」を追加した言語だよ。バグを事前に防げるから、チーム開発では必須になりつつあるんだ。
 {{< /chat >}}
 
-
 「TypeScriptって何？JavaScriptと何が違うの？」
 
 プログラミングを学び始めると、TypeScriptという名前をよく見かけます。この記事では、TypeScriptがなぜ必要なのかを具体例で説明します。
@@ -204,5 +203,4 @@ A: 一度に全部変える必要はありません。`.js` ファイルを `.ts
 ### あわせて読みたい
 - [JavaScriptの配列メソッド ― 初心者が最初に覚えるべき5つ](/posts/javascript-array-methods/)
 - [npmとyarnの違い ― どっちを使えばいい？](/posts/npm-yarn-beginner/)
-
 

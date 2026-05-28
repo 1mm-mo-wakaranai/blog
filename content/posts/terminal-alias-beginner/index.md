@@ -16,7 +16,6 @@ draft: false
 aliasを設定すれば、長いコマンドを短い名前で呼び出せるよ。git statusをgsにするとか、自由自在。
 {{< /chat >}}
 
-
 「毎回同じ長いコマンドを打つのが面倒」
 
 エイリアス（alias）を設定すれば、長いコマンドを短い文字で実行できます。
@@ -170,5 +169,4 @@ alias gs='git status' だけでこんなに楽になるんだ…！
 ### あわせて読みたい
 - [コマンドラインが怖い人へ ― 覚えるコマンド5つだけ](/posts/command-line-scary/)
 - [git pushでrejectedエラーが出たときの対処法](/posts/git-first-push-error/)
-
 
