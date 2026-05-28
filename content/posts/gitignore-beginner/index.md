@@ -16,6 +16,8 @@ draft: false
 node_modulesとか.envとか、GitHubに上げちゃいけないファイルがあるんだ。それを自動で除外してくれる設定ファイルだよ。
 {{< /chat >}}
 
+![.gitignore 理解度の変化](images/comparison-before-after.png)
+
 「node_modulesをGitHubにpushしてしまった」「.envファイルにAPIキーを書いたまま公開してしまった」
 
 こうしたミスを防ぐのが `.gitignore` ファイルです。この記事では、.gitignoreの書き方と、よく使うパターンを解説します。
@@ -331,6 +333,36 @@ touch logs/.gitkeep
 logs/*
 !logs/.gitkeep
 ```
+
+## 筆者がハマったポイント
+
+.gitignoreは単純なファイルですが、タイミングを間違えると面倒なことになります。
+
+### ハマり1: .gitignoreを後から追加しても効かなかった
+
+プロジェクトの途中で「あ、node_modules追跡しちゃってる」と気づいて `.gitignore` に追加。でもgit statusを見ると、まだ追跡されたまま。`.gitignore` は「まだ追跡されていないファイル」にしか効かないことを知らず、1時間悩みました。
+
+**気づき:** すでに追跡されているファイルは `git rm --cached` で追跡を解除してから `.gitignore` に追加する。順番が大事。
+
+### ハマり2: .envをpushしてAPIキーが漏洩した
+
+個人プロジェクトで `.gitignore` を作り忘れたまま開発を進め、`.env` にOpenAIのAPIキーを書いた状態でpush。GitHubのセキュリティスキャンから「秘密情報が検出されました」とメールが来て気づきました。即座にキーを無効化して再発行。
+
+**改善:** `git init` した直後に `.gitignore` を作るのを鉄則にしました。テンプレートをコピペするだけなので5秒で終わる。
+
+### ハマり3: ワイルドカードの書き方を間違えてビルドが壊れた
+
+`*.js` と書いたつもりが、ソースコードの `.js` ファイルまで無視されてしまい、チームメイトがcloneしたらプロジェクトが動かない事態に。正しくは `dist/*.js`（ビルド出力のJSだけ無視）と書くべきでした。
+
+**改善:** ワイルドカードを使うときは、必ずディレクトリを限定する。`*.js` のような広すぎるパターンは危険。
+
+{{< chat name="初心者ちゃん" icon="/images/rin-icon.png" direction="left" >}}
+.gitignoreは最初に作らないとダメなんだね…。後からだと面倒になるの分かった。
+{{< /chat >}}
+
+{{< chat name="全知全能くん" icon="/images/zenchi-icon.png" direction="right" >}}
+「git init → .gitignore作成 → 最初のcommit」この順番を体に染み込ませよう。
+{{< /chat >}}
 
 ## よくある質問（FAQ）
 
