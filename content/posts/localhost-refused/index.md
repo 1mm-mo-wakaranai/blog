@@ -16,6 +16,9 @@ localhost:3000にアクセスしたら「接続が拒否されました」って
 サーバーが起動してないか、ポートが違うかのどっちかだよ。よくある原因と確認手順を教えるね。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 ブラウザで `localhost:3000` や `localhost:8080` にアクセスしたら、こんなエラーが出た。
 
 ```

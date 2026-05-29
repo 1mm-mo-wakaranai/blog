@@ -16,6 +16,9 @@ GitHub Copilotって有料だと思ってたけど、無料で使えるように
 そうなんだ。制限付きだけど無料プランが登場したよ。月の補完回数に上限はあるけど、個人の学習用途なら十分使える。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 「GitHub Copilotって聞いたことあるけど、無料で使えるの？」
 
 GitHub Copilotは、コードを書いているとAIが自動で続きを提案してくれるツールです。無料プランがあるので、誰でも試せます。

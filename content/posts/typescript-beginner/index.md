@@ -16,6 +16,9 @@ TypeScriptって何？JavaScriptと何が違うの？わざわざ覚える必要
 JavaScriptに「型」を追加した言語だよ。バグを事前に防げるから、チーム開発では必須になりつつあるんだ。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 「TypeScriptって何？JavaScriptと何が違うの？」
 
 プログラミングを学び始めると、TypeScriptという名前をよく見かけます。この記事では、TypeScriptがなぜ必要なのかを具体例で説明します。

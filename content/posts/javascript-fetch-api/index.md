@@ -16,6 +16,9 @@ draft: false
 fetchはブラウザに標準で入ってるHTTPリクエスト用の関数だよ。axiosとか入れなくても使えるんだ。基本の書き方を見ていこう。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 「fetchって何？APIからデータを取るってどういうこと？」
 
 fetch APIの基本から、実際にデータを取得して画面に表示するまでを解説します。

@@ -16,6 +16,9 @@ async/awaitって何？Promiseとの違いが分からない…
 Promiseを「もっと読みやすく書ける構文」がasync/awaitだよ。やってることは同じだけど、見た目が全然違うんだ。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 「async/awaitって何？なんで必要なの？」
 
 非同期処理の概念から、async/awaitの使い方まで段階的に解説します。

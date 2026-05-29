@@ -16,6 +16,9 @@ draft: false
 仮想マシンより軽くて速い「コンテナ」っていう仕組みだよ。「自分のPCでは動くのに」問題を解決してくれるんだ。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 ![この記事を読むと...](images/before-after.png)
 
 「Dockerって何？なんで必要なの？」

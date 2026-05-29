@@ -22,6 +22,9 @@ cover:
 Promise.allを使えば並列で実行できるよ。3つのAPIを同時に呼んで、全部終わったら次に進む、ってことができるんだ。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 「複数のAPI呼び出しを同時に実行したい」
 「Promise.allの使い方がよく分からない」
 

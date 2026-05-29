@@ -21,6 +21,9 @@ npxって何？npmとは違うの？いつ使うの？
 パッケージをインストールせずに一回だけ実行できるコマンドだよ。create-react-appとかで使ったことあるはず。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 「npxって何？npmと何が違うの？」「npx create-react-appってなぜnpxなの？」という方へ。
 
 この記事では、npxの仕組みとnpmとの違いを、具体例を使ってやさしく解説します。

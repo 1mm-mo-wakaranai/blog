@@ -16,6 +16,9 @@ VS Codeがまたアップデートされたみたい。Agents Windowって何？
 AIエージェント（Copilot、Claude、Codexなど）を一元管理できるウィンドウだよ。1.120でついに安定版になったから、詳しく解説するね。
 {{< /chat >}}
 
+![この記事のBefore/After](images/comparison-before-after.png)
+
+
 「VS Code 1.120で何が変わったの？」「Agents Windowって何ができるの？」という方へ。
 
 この記事では、2026年5月にリリースされたVS Code 1.120の主要な新機能を解説します。
