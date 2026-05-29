@@ -308,6 +308,8 @@ GPT-5シリーズへの移行に伴う追加料金は発生しない見込みで
 ![この記事のBefore/After](images/comparison-before-after.png)
 
 
+![GPT-4o引退 確認すべき3つのこと](images/point-checklist.png)
+
 ## まとめ ― 早めの準備が安心につながる
 
 GPT-4oの引退は、AI業界の進化の速さを象徴しています。
