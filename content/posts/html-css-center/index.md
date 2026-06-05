@@ -202,6 +202,24 @@ place-items: center が最強すぎる…！これだけ覚えておけばいい
 Grid + place-items: centerは確かに最強。ただ古いブラウザ対応が必要なときはmargin: autoも使えるようにしておこう。
 {{< /chat >}}
 
+
+---
+
+## 実際に中央揃えで30分ハマった！（筆者の失敗談）
+
+筆者がCSSの中央揃えで最もハマったのは「親要素にheightが設定されていなかった」パターンです。
+
+`display: flex; align-items: center;`を書いても縦方向に中央揃えにならない。原因は、親のdivに`height`が指定されておらず、子要素の高さ=親の高さになっていたため「すでに中央にいる」状態でした。
+
+**教訓**: 縦方向の中央揃えは、親要素に明示的なheight（または`min-height: 100vh`）が必要。これを知っていれば30分の悩みは5秒で解決できました。
+
+### 中央揃えの選び方フローチャート
+
+1. テキストだけ？ → `text-align: center`（水平）+ `line-height`（垂直）
+2. ブロック要素？ → `margin: 0 auto`（水平のみ）
+3. 上下左右とも中央？ → `display: flex; justify-content: center; align-items: center;`
+4. グリッドレイアウト内？ → `place-items: center`（最短）
+
 ## まとめと次のステップ
 
 - テキストの中央揃え → `text-align: center`

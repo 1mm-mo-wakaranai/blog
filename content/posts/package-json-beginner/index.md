@@ -255,6 +255,24 @@ scriptsのところに自分でコマンド追加できるんだ…！npm run bu
 - dependencies は本番用、devDependencies は開発用のライブラリ一覧
 - バージョンの `^` はマイナーアップデートまで許可する記号
 - `npm init -y` で簡単に作成できる
+- package-lock.jsonは自動生成されるので手動編集不要
+- node_modulesはGitにコミットしない
+
+---
+
+## 実際にpackage.jsonを読んで理解が深まった瞬間（筆者の体験）
+
+筆者がpackage.jsonの中身を「ちゃんと理解した」と感じた瞬間は、チュートリアルの `npm run dev` が動かなかったときでした。
+
+「なぜ動かないのか」を調べるためにpackage.jsonのscriptsセクションを開いたら、チュートリアルでは `"dev": "vite"` と書いてあるのに、自分のファイルには `"dev"` がなかった。つまり`npm init -y`で作ったままで、scriptsが空だったのが原因。
+
+この経験から「npm run xxxはpackage.jsonのscriptsを見ている」「エラーが出たらまずpackage.jsonを確認する」という習慣が身につきました。
+
+### package.jsonでよくやるミスTOP3
+
+1. **scriptsの名前を間違えてnpm runが動かない** — タイポに注意。`"dev"` vs `"Dev"` は別物
+2. **dependenciesに入れるべきものをdevDependenciesに入れてデプロイで動かない** — expressをdevDependenciesに入れると本番で動かない
+3. **JSONの構文エラー（カンマの過不足）** — VS Codeなら赤線で教えてくれる。[JSONの基本ルール](/posts/json-what-is-it/)を確認
 
 ---
 ### あわせて読みたい

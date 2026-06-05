@@ -117,7 +117,7 @@ deactivate
 
 これだけです。
 
-## 筆者がハマったポイント
+## 実際にvenvでハマりまくった！（筆者の失敗談）
 
 仮想環境は簡単なようで、最初は地味にハマるポイントがあります。僕の失敗談を紹介します。
 
@@ -184,8 +184,44 @@ python -m venv .venv で作って、activateするだけなんだ…！思った
 - `ModuleNotFoundError` は「そのPythonにはライブラリが入っていない」という意味
 - 仮想環境を使えば、プロジェクトごとにライブラリを管理できる
 - `python -m venv .venv` → `activate` → `pip install` の3ステップ
+- ターミナルの先頭に`(.venv)`が表示されているか確認する癖をつける
+- .gitignoreに`.venv/`を追加し忘れない
+- Pythonのバージョンを変えたら仮想環境も作り直す
+- VS Codeなら自動でactivateしてくれるので楽
 
 慣れると、新しいプロジェクトを始めるときに無意識にやるようになります。
+
+---
+
+## 仮想環境の作成〜使い方チートシート
+
+毎回忘れる人のためのコピペ用チートシートです。
+
+```bash
+# === 最初の1回（プロジェクト作成時） ===
+python -m venv .venv          # 仮想環境を作成
+echo ".venv/" >> .gitignore   # Gitから除外
+
+# === 毎回の作業開始時 ===
+# Windows:
+.venv\Scripts\activate
+# Mac/Linux:
+source .venv/bin/activate
+
+# === ライブラリ追加 ===
+pip install requests          # ライブラリをインストール
+pip freeze > requirements.txt # 一覧を保存
+
+# === 別PCで環境を再現 ===
+python -m venv .venv
+# activate後に:
+pip install -r requirements.txt
+
+# === 終了 ===
+deactivate
+```
+
+このチートシートをブックマークしておけば、迷うことなく仮想環境を使いこなせます。
 
 ---
 ### あわせて読みたい
