@@ -15,7 +15,7 @@ paginate = 10
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
-  TocOpen = true
+  TocOpen = false
   defaultTheme = "light"
 
   [params.homeInfoParams]
