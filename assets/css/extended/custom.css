@@ -878,3 +878,30 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* ===== 忍者アドマックス広告の出し分け ===== */
+/* 記事冒頭広告の余白 */
+.ad-top-article {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+/* PC用広告：デフォルト表示、スマホで非表示 */
+.admax-pc {
+  display: block;
+}
+.admax-sp {
+  display: none;
+}
+/* スマホ（768px以下）：PC用を隠してスマホ用を表示 */
+@media (max-width: 768px) {
+  .admax-pc {
+    display: none;
+  }
+  .admax-sp {
+    display: block;
+  }
+  /* サイドバー広告（PC縦長）はスマホでは非表示 */
+  .sidebar-card.admax-pc {
+    display: none;
+  }
+}
