@@ -905,3 +905,12 @@ body {
     display: none;
   }
 }
+
+/* 中盤の自動挿入広告・関連記事下の広告の余白 */
+.ad-mid-auto {
+  margin: 2.5rem 0;
+}
+.ad-after-related {
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
