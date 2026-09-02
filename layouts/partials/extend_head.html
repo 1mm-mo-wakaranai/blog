@@ -22,3 +22,15 @@
 <!-- Google AdSense 審査用コード -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2213738878575745" crossorigin="anonymous"></script>
 <!-- 記事中広告の自動挿入（アドセンス審査中のため非表示） -->
+<!-- スクロール出現アニメーション（.reveal を画面内で表示） -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || !els.length) { els.forEach(function(e){e.classList.add('in');}); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(function (e) { io.observe(e); });
+});
+</script>

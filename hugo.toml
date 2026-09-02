@@ -40,6 +40,16 @@ paginate = 10
 
 [menu]
   [[menu.main]]
+    identifier = "home"
+    name = "🏠 ホーム"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "ai-blog"
+    name = "🤖 AIつかいこなし帳"
+    url = "https://ai.wakaru-note.com/"
+    weight = 32
+  [[menu.main]]
     identifier = "tags"
     name = "タグ"
     url = "/tags/"

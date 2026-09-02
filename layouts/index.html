@@ -1,44 +1,59 @@
-{{- define "main" }}
+﻿{{- define "main" }}
+
+{{/* 技術ロゴのSVG定義（1回だけ出力） */}}
+{{ partial "tech-logos.html" . }}
 
 <!-- ヒーローバナー -->
-<div class="hero-banner">
+<div class="hero-banner reveal">
+  <span class="hero-motif" aria-hidden="true">{ }</span>
+  <div class="hero-logos" aria-hidden="true">
+    <span class="flogo hl1"><svg viewBox="0 0 160 160"><use href="#lg-python"/></svg></span>
+    <span class="flogo hl2"><svg viewBox="0 0 160 160"><use href="#lg-git"/></svg></span>
+    <span class="flogo hl3"><svg viewBox="0 0 160 160"><use href="#lg-js"/></svg></span>
+  </div>
   <div class="hero-inner">
-    <div class="hero-emoji">🔍💡✨</div>
-    <h1 class="hero-title">ググっても分からなかった初心者へ</h1>
-    <p class="hero-subtitle">検索しても解決しなかったあの問題、ここで一緒に解決します。</p>
+    <span class="hero-eyebrow"><span class="dot"></span> ググっても分からなかった、を終わらせる</span>
+    <h1 class="hero-title">検索しても<span class="hl">解決しなかった</span>あの問題、ここで一緒に解決。</h1>
+    <p class="hero-subtitle">エラーの原因から直し方まで、初心者がつまずくポイントを図解でやさしく。</p>
+    <form class="hero-search" action="/search/" method="get" role="search">
+      <span class="hero-search-icon" aria-hidden="true">🔍</span>
+      <input type="text" name="q" placeholder="キーワードで探す（例: CORS エラー / venv）" aria-label="サイト内検索">
+      <button type="submit">探す</button>
+    </form>
   </div>
 </div>
 
-<!-- カテゴリナビ -->
-<div class="category-nav">
-  <a href="/tags/python/" class="category-card">
-    <span class="category-icon">🐍</span>
-    <span class="category-name">Python</span>
-  </a>
-  <a href="/tags/git/" class="category-card">
-    <span class="category-icon">🌿</span>
-    <span class="category-name">Git</span>
-  </a>
-  <a href="/tags/css/" class="category-card">
-    <span class="category-icon">🎨</span>
-    <span class="category-name">CSS</span>
-  </a>
-  <a href="/tags/vs-code/" class="category-card">
-    <span class="category-icon">⚡</span>
-    <span class="category-name">VS Code</span>
-  </a>
-  <a href="/tags/初心者向け/" class="category-card">
-    <span class="category-icon">🔰</span>
-    <span class="category-name">初心者向け</span>
-  </a>
-  <a href="/tags/エラー解決/" class="category-card">
-    <span class="category-icon">🛠️</span>
-    <span class="category-name">エラー解決</span>
-  </a>
+<!-- カテゴリ（トピック）ナビ -->
+<div class="category-nav reveal">
+  <a href="/tags/python/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-python"/></svg></span><span class="category-name">Python</span></a>
+  <a href="/tags/git/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-git"/></svg></span><span class="category-name">Git</span></a>
+  <a href="/tags/javascript/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-js"/></svg></span><span class="category-name">JavaScript</span></a>
+  <a href="/tags/css/" class="category-card"><span class="category-icon emoji">🎨</span><span class="category-name">CSS</span></a>
+  <a href="/tags/vs-code/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-vscode"/></svg></span><span class="category-name">VS Code</span></a>
+  <a href="/tags/エラー解決/" class="category-card"><span class="category-icon emoji">🛠️</span><span class="category-name">エラー解決</span></a>
 </div>
 
+<!-- よく読まれている記事（人気記事：data/popular.yaml を参照） -->
+{{- with hugo.Data.popular }}
+{{- if .posts }}
+<div class="section-header reveal">
+  <span class="section-icon">🔥</span>
+  <h2>よく読まれている記事</h2>
+</div>
+<div class="popular-grid reveal">
+  {{- range $i, $p := first 6 .posts }}
+  <a href="{{ $p.url }}" class="popular-card">
+    <span class="popular-rank">{{ add $i 1 }}</span>
+    <span class="popular-emoji">{{ with $p.icon }}{{ . }}{{ else }}📄{{ end }}</span>
+    <span class="popular-title">{{ $p.title }}</span>
+  </a>
+  {{- end }}
+</div>
+{{- end }}
+{{- end }}
+
 <!-- 新着記事 -->
-<div class="section-header">
+<div class="section-header reveal">
   <span class="section-icon">📝</span>
   <h2>新着記事</h2>
 </div>
@@ -47,7 +62,7 @@
 {{- $paginator := .Paginate $pages }}
 
 {{- range $index, $page := $paginator.Pages }}
-<article class="post-entry">
+<article class="post-entry reveal">
   <a href="{{ .Permalink }}">
     <header class="entry-header">
       <h2>

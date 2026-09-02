@@ -1,0 +1,20 @@
+# 人気記事（よく読まれている記事）
+# アクセス数(Google Analytics)を見て、ここを手動で並べ替え・差し替えするだけで
+# トップページとサイドバーの「よく読まれている記事」が更新されます。
+# icon は index.html のトピックアイコン(python/git/js/vscode/docker/tool)か絵文字。
+posts:
+  - title: "Flexboxが分からない人へ ― 図解で覚える基本"
+    url: "/posts/css-flexbox-beginner/"
+    icon: "🎨"
+  - title: "APIとは？レストランの注文に例えて理解する"
+    url: "/posts/api-what-is-it/"
+    icon: "🔌"
+  - title: "CORSエラーとは？原因と解決方法"
+    url: "/posts/cors-error-beginner/"
+    icon: "🛠️"
+  - title: "GitHubとは？最初の使い方ガイド"
+    url: "/posts/github-what-is-it/"
+    icon: "🌿"
+  - title: "async/awaitが分からない人へ"
+    url: "/posts/javascript-async-await/"
+    icon: "🟨"
