@@ -18,15 +18,15 @@
     <span class="flogo hl3"><svg viewBox="0 0 160 160"><use href="#lg-js"/></svg></span>
   </div>
   <div class="hero-inner">
-    <span class="hero-eyebrow"><span class="dot"></span> ググっても分からなかった、を終わらせる</span>
-    <h1 class="hero-title">検索しても<span class="hl">解決しなかった</span>あの問題、ここで一緒に解決。</h1>
+    <span class="hero-eyebrow"><span class="dot"></span> ググっても分からなかった、<wbr>を終わらせる</span>
+    <h1 class="hero-title">検索しても<wbr><span class="hl">解決しなかった</span><wbr>あの問題、<wbr>ここで一緒に解決。</h1>
     <p class="hero-subtitle">エラーの原因から直し方まで、図解でやさしく。新しいバージョンの変更点も公式情報を確認して反映しています。</p>
     <form class="hero-search" action="/search/" method="get" role="search">
       <span class="hero-search-icon" aria-hidden="true">🔍</span>
       <input type="text" name="q" placeholder="キーワードで探す（例: CORS エラー / venv）" aria-label="サイト内検索">
       <button type="submit">探す</button>
     </form>
-    <p class="hero-fresh"><span class="hero-fresh-badge">更新</span> 最終更新 <time datetime="{{ $latest.Date.Format "2006-01-02" }}">{{ $latest.Date.Format "2006.01.02" }}</time><span class="nowrap">・ 全{{ len $pages }}記事</span></p>
+    <p class="hero-fresh"><span class="hero-fresh-badge">最終更新</span><time datetime="{{ $latest.Date.Format "2006-01-02" }}">{{ $latest.Date.Format "2006.01.02" }}</time><span class="hero-fresh-sep" aria-hidden="true">/</span><span class="nowrap">全{{ len $pages }}記事</span></p>
   </div>
 </div>
 
@@ -39,7 +39,7 @@
   (dict "key" "vs-code" "name" "VS Code" "svg" "lg-vscode")
   (dict "key" "エラー解決" "name" "エラー解決" "emoji" "🛠️")
 }}
-<nav class="category-nav" aria-label="カテゴリ">
+<nav class="category-nav cats-{{ len $cats }}" aria-label="カテゴリ">
   {{- range $cats }}
   {{- $n := 0 }}{{ with site.GetPage (printf "/tags/%s" .key) }}{{ $n = len .Pages }}{{ end }}
   <a href="{{ printf "/tags/%s/" .key }}" class="category-card">
@@ -109,7 +109,7 @@
       </span>
       <span class="home-card-title">{{ .Title }}</span>
       <span class="home-card-desc">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 80 }}{{ end }}</span>
-      <span class="home-meta">📅 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · ☕ {{ .ReadingTime }}分</span>
+      <span class="home-meta">📅 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time><span class="home-rt"> · ☕ {{ .ReadingTime }}分</span></span>
     </span>
   </a>
   {{- end }}

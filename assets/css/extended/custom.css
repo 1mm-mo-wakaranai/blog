@@ -1206,3 +1206,90 @@ a.home-pager-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 
 .hero-search input { min-width: 0; }
 .hero-search button { flex-shrink: 0; white-space: nowrap; }
 .hero-fresh time, .hero-fresh .nowrap { white-space: nowrap; }
+
+/* ============================================================
+   改行・レイアウト調整 v3.1（2026-10）
+   ============================================================ */
+
+/* 日本語の見出しは文節の切れ目で改行する（対応ブラウザのみ。非対応なら従来どおり） */
+.hero-subtitle, .home-feature-title, .home-card-title, .popular-title, .section-header h2,
+.category-name, .related-title, .sidebar-recent a, .post-title, .post-content h2, .post-content h3,
+.entry-header h2, .breadcrumbs { word-break: auto-phrase; }
+
+/* ヒーロー見出しとラベルは <wbr> の位置だけで改行（単語の途中で切らない） */
+.hero-banner .hero-title, .hero-eyebrow { word-break: keep-all; overflow-wrap: anywhere; }
+.hero-eyebrow { line-height: 1.5; }
+@media (max-width: 400px) { .hero-eyebrow { font-size: 11px; padding: 5px 12px; } }
+
+/* 最終更新の行 */
+.hero-fresh { gap: 4px 8px; }
+.hero-fresh-sep { color: var(--text-sub); font-weight: 400; }
+
+/* メニュー：テーマ既定の行の高さ(60px)で折り返すと間延びするので詰める */
+#menu { line-height: 2.4; padding-bottom: 6px; }
+#menu li + li { margin-inline-start: 4px; }
+@media (max-width: 768px) {
+  /* スマホは横スクロールで隠さず、折り返して全部見せる */
+  #menu { flex-wrap: wrap; overflow: visible; white-space: nowrap; justify-content: center; line-height: 2; row-gap: 2px; }
+  #menu a { padding: .15rem .55rem; font-size: 14px; }
+  .nav { justify-content: center; }
+}
+
+/* カテゴリ：中途半端な段にならないよう列数を固定 */
+.category-nav.cats-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.category-nav.cats-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@media (max-width: 1000px) and (min-width: 641px) {
+  .category-nav.cats-8 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .category-nav.cats-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* いちばん新しい記事：タブレット幅は縦積みにして左下の空白をなくす */
+@media (max-width: 1000px) {
+  .home-feature { grid-template-columns: 1fr; }
+  .home-feature-thumb { border-right: none; border-bottom: 3px solid var(--line-strong); }
+}
+
+/* スマホの新着カード：表紙の文字が左右で切れないよう全体表示 */
+@media (max-width: 640px) {
+  .home-card-thumb { background: var(--line-strong); display: flex; align-items: center; }
+  .home-card-thumb img { height: auto; aspect-ratio: 1200 / 630; object-fit: contain; }
+  .home-card-thumb:has(img.is-fit), .home-card-thumb:has(.home-thumb-tile) { background: var(--accent-light); }
+}
+
+/* フッター：リンク名の途中で改行しない */
+.footer a { white-space: nowrap; }
+
+/* 「―」(U+2015)・「—」がWindowsのSegoe UIだと上付きの短い線(¯)に見えるので、そこだけ日本語フォントで描く */
+@font-face { font-family: "JaDash"; src: local("Meiryo"), local("Yu Gothic"), local("Hiragino Sans"), local("Noto Sans JP"), local("Noto Sans CJK JP"); unicode-range: U+2014-2015; }
+@font-face { font-family: "JaDash"; font-weight: 700 900; src: local("Meiryo Bold"), local("Yu Gothic Bold"), local("Hiragino Sans W6"), local("Noto Sans JP Bold"), local("Noto Sans CJK JP Bold"); unicode-range: U+2014-2015; }
+body { font-family: "JaDash", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif; }
+
+/* スマホの新着：表紙が切れず小さくもならないよう、上に画像・下にタイトルの2列グリッドに */
+@media (max-width: 640px) {
+  .home-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-right: 4px; }
+  .home-card { flex-direction: column; border-radius: 14px; box-shadow: 3px 3px 0 var(--line-strong); }
+  .home-card-thumb { flex: none; display: block; aspect-ratio: 1200 / 630; background: var(--accent-light);
+    border-right: none; border-bottom: 3px solid var(--line-strong); }
+  .home-card-thumb img { height: 100%; object-fit: cover; }
+  .home-card-thumb img.is-fit { object-fit: contain; padding: 3px; }
+  .home-card-body { padding: 8px 10px 10px; gap: 5px; }
+  .home-card .home-chips .home-chip:not(.is-new) + .home-chip, .home-card .home-chip { font-size: .66rem; padding: 0 7px; border-width: 1.5px; }
+  .home-card-title { font-size: .82rem; line-height: 1.45; -webkit-line-clamp: 4; }
+  .home-card .home-meta { font-size: .7rem; }
+  .home-thumb-tile { font-size: 1.8rem; }
+}
+.home-meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 640px) {
+  .home-card .home-rt { display: none; }
+  /* 奇数で最後の1枚が余るときは横幅いっぱいの大きいカードにする */
+  .home-grid > .home-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* 英単語やエラー名が長くてもカードからはみ出さない */
+.home-card-title, .home-feature-title, .popular-title { overflow-wrap: anywhere; }
+
+/* 記事ページ（スマホ）：タイトルが大きすぎて1画面を占領しないように／吹き出しの名前を途中で折らない */
+@media (max-width: 640px) {
+  .post-header .post-title { font-size: 1.5rem; line-height: 1.45; }
+  .chat-name { white-space: nowrap; font-size: .62rem; letter-spacing: 0; }
+}
