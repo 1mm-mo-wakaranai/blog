@@ -4,6 +4,7 @@ defaultContentLanguage = "ja"
 title = "ググっても分からなかった初心者へ"
 theme = "PaperMod"
 paginate = 10
+hasCJKLanguage = true
 
 [params]
   env = "production"
@@ -17,6 +18,9 @@ paginate = 10
   ShowToc = true
   TocOpen = false
   defaultTheme = "light"
+
+  [params.footer]
+    text = "[プロフィール](/about/) ・ [プライバシーポリシー](/privacy/) ・ [お問い合わせ](/contact/)"
 
   [params.homeInfoParams]
     Title = "ググっても分からなかった初心者へ"
@@ -64,16 +68,6 @@ paginate = 10
     name = "検索"
     url = "/search/"
     weight = 30
-  [[menu.main]]
-    identifier = "privacy"
-    name = "プライバシーポリシー"
-    url = "/privacy/"
-    weight = 40
-  [[menu.main]]
-    identifier = "contact"
-    name = "お問い合わせ"
-    url = "/contact/"
-    weight = 50
   [[menu.main]]
     identifier = "about"
     name = "プロフィール"

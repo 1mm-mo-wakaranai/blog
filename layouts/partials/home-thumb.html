@@ -1,0 +1,26 @@
+{{- /*
+  トップページのカード用サムネイル。
+  1) front matter の cover.image → 2) 記事内の比較図(comparison-*) → 3) 記事内の最初の画像
+  の順に探して 1200:630 に切り抜き縮小する。画像がなければタグの絵文字タイルを出す。
+  引数: page（記事）, width（縮小後の幅）, eager（true なら遅延読み込みしない）
+*/}}
+{{- $p := .page }}
+{{- $w := .width | default 640 }}
+{{- $h := div (mul $w 63) 120 }}
+{{- $img := false }}
+{{- with $p.Params.cover.image }}{{ $img = $p.Resources.GetMatch . }}{{ end }}
+{{- if not $img }}{{ $img = $p.Resources.GetMatch "images/comparison-*" }}{{ end }}
+{{- if not $img }}{{ with $p.Resources.ByType "image" }}{{ $img = index . 0 }}{{ end }}{{ end }}
+{{- if and $img (not (in (slice "png" "jpeg" "jpg" "webp" "gif") $img.MediaType.SubType)) }}{{ $img = false }}{{ end }}
+{{- if $img }}
+{{- if $p.Params.cover.image }}
+{{- $t := $img.Fill (printf "%dx%d jpg q80 Center" $w $h) }}
+<img src="{{ $t.RelPermalink }}" width="{{ $t.Width }}" height="{{ $t.Height }}" alt="" {{ if .eager }}fetchpriority="high"{{ else }}loading="lazy"{{ end }} decoding="async">
+{{- else }}
+{{- /* 表紙がない記事は図解を切り抜かず、全体が見えるように縮小する */}}
+{{- $t := $img.Fit (printf "%dx%d jpg q80" $w $h) }}
+<img class="is-fit" src="{{ $t.RelPermalink }}" width="{{ $t.Width }}" height="{{ $t.Height }}" alt="" {{ if .eager }}fetchpriority="high"{{ else }}loading="lazy"{{ end }} decoding="async">
+{{- end }}
+{{- else }}
+<span class="home-thumb-tile" aria-hidden="true">{{ partial "tag-emoji.html" $p }}</span>
+{{- end }}

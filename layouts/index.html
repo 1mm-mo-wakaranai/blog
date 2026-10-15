@@ -1,10 +1,16 @@
-﻿{{- define "main" }}
+{{- define "main" }}
 
 {{/* 技術ロゴのSVG定義（1回だけ出力） */}}
 {{ partial "tech-logos.html" . }}
 
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $paginator := .Paginate $pages }}
+{{- $first := eq $paginator.PageNumber 1 }}
+{{- $latest := index $pages.ByDate.Reverse 0 }}
+
+{{- if $first }}
 <!-- ヒーローバナー -->
-<div class="hero-banner reveal">
+<div class="hero-banner">
   <span class="hero-motif" aria-hidden="true">{ }</span>
   <div class="hero-logos" aria-hidden="true">
     <span class="flogo hl1"><svg viewBox="0 0 160 160"><use href="#lg-python"/></svg></span>
@@ -14,88 +20,107 @@
   <div class="hero-inner">
     <span class="hero-eyebrow"><span class="dot"></span> ググっても分からなかった、を終わらせる</span>
     <h1 class="hero-title">検索しても<span class="hl">解決しなかった</span>あの問題、ここで一緒に解決。</h1>
-    <p class="hero-subtitle">エラーの原因から直し方まで、初心者がつまずくポイントを図解でやさしく。</p>
+    <p class="hero-subtitle">エラーの原因から直し方まで、図解でやさしく。新しいバージョンの変更点も公式情報を確認して反映しています。</p>
     <form class="hero-search" action="/search/" method="get" role="search">
       <span class="hero-search-icon" aria-hidden="true">🔍</span>
       <input type="text" name="q" placeholder="キーワードで探す（例: CORS エラー / venv）" aria-label="サイト内検索">
       <button type="submit">探す</button>
     </form>
+    <p class="hero-fresh"><span class="hero-fresh-badge">更新</span> 最終更新 <time datetime="{{ $latest.Date.Format "2006-01-02" }}">{{ $latest.Date.Format "2006.01.02" }}</time><span class="nowrap">・ 全{{ len $pages }}記事</span></p>
   </div>
 </div>
 
-<!-- カテゴリ（トピック）ナビ -->
-<div class="category-nav reveal">
-  <a href="/tags/python/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-python"/></svg></span><span class="category-name">Python</span></a>
-  <a href="/tags/git/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-git"/></svg></span><span class="category-name">Git</span></a>
-  <a href="/tags/javascript/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-js"/></svg></span><span class="category-name">JavaScript</span></a>
-  <a href="/tags/css/" class="category-card"><span class="category-icon emoji">🎨</span><span class="category-name">CSS</span></a>
-  <a href="/tags/vs-code/" class="category-card"><span class="category-icon"><svg viewBox="0 0 160 160"><use href="#lg-vscode"/></svg></span><span class="category-name">VS Code</span></a>
-  <a href="/tags/エラー解決/" class="category-card"><span class="category-icon emoji">🛠️</span><span class="category-name">エラー解決</span></a>
-</div>
+<!-- カテゴリ（トピック）ナビ：記事数つき -->
+{{- $cats := slice
+  (dict "key" "python" "name" "Python" "svg" "lg-python")
+  (dict "key" "git" "name" "Git" "svg" "lg-git")
+  (dict "key" "javascript" "name" "JavaScript" "svg" "lg-js")
+  (dict "key" "css" "name" "CSS" "emoji" "🎨")
+  (dict "key" "vs-code" "name" "VS Code" "svg" "lg-vscode")
+  (dict "key" "エラー解決" "name" "エラー解決" "emoji" "🛠️")
+}}
+<nav class="category-nav" aria-label="カテゴリ">
+  {{- range $cats }}
+  {{- $n := 0 }}{{ with site.GetPage (printf "/tags/%s" .key) }}{{ $n = len .Pages }}{{ end }}
+  <a href="{{ printf "/tags/%s/" .key }}" class="category-card">
+    {{- if .svg }}<span class="category-icon {{ .cls }}"><svg viewBox="0 0 160 160"><use href="#{{ .svg }}"/></svg></span>
+    {{- else }}<span class="category-icon emoji">{{ .emoji }}</span>{{ end }}
+    <span class="category-name">{{ .name }}</span>
+    {{- if $n }}<span class="category-count">{{ $n }}記事</span>{{ end }}
+  </a>
+  {{- end }}
+</nav>
+{{- end }}
 
-<!-- よく読まれている記事（人気記事：data/popular.yaml を参照） -->
-{{- with hugo.Data.popular }}
-{{- if .posts }}
-<div class="section-header reveal">
+{{- $grid := $paginator.Pages }}
+{{- if $first }}
+{{- $feat := index $paginator.Pages 0 }}
+{{- $grid = after 1 $paginator.Pages }}
+<!-- いちばん新しい記事（速報） -->
+<div class="section-header">
+  <span class="section-icon">🆕</span>
+  <h2>いちばん新しい記事</h2>
+</div>
+<a href="{{ $feat.Permalink }}" class="home-feature">
+  <span class="home-feature-thumb">{{ partial "home-thumb.html" (dict "page" $feat "width" 960 "eager" true) }}</span>
+  <span class="home-feature-body">
+    <span class="home-chips">
+      <span class="home-chip is-new">NEW</span>
+      {{- range first 2 $feat.Params.tags }}<span class="home-chip">{{ . }}</span>{{ end }}
+    </span>
+    <span class="home-feature-title">{{ $feat.Title }}</span>
+    <span class="home-feature-desc">{{ with $feat.Description }}{{ . }}{{ else }}{{ $feat.Summary | plainify | htmlUnescape | truncate 120 }}{{ end }}</span>
+    <span class="home-meta">📅 <time datetime="{{ $feat.Date.Format "2006-01-02" }}">{{ $feat.Date.Format "2006.01.02" }}</time> · ☕ {{ $feat.ReadingTime }}分で読める</span>
+    <span class="home-feature-cta">読んでみる →</span>
+  </span>
+</a>
+
+<!-- よく読まれている記事（data/popular.yaml の上位3件） -->
+{{- with hugo.Data.popular }}{{ with .posts }}
+<div class="section-header">
   <span class="section-icon">🔥</span>
   <h2>よく読まれている記事</h2>
 </div>
-<div class="popular-grid reveal">
-  {{- range $i, $p := first 6 .posts }}
+<div class="popular-grid">
+  {{- range $i, $p := first 3 . }}
+  {{- $pg := site.GetPage (strings.TrimSuffix "/" $p.url) }}
   <a href="{{ $p.url }}" class="popular-card">
-    <span class="popular-rank">{{ add $i 1 }}</span>
-    <span class="popular-emoji">{{ with $p.icon }}{{ . }}{{ else }}📄{{ end }}</span>
+    <span class="popular-thumb">{{ if $pg }}{{ partial "home-thumb.html" (dict "page" $pg "width" 320) }}{{ else }}<span class="home-thumb-tile" aria-hidden="true">{{ $p.icon | default "📄" }}</span>{{ end }}<span class="popular-rank">{{ add $i 1 }}</span></span>
     <span class="popular-title">{{ $p.title }}</span>
   </a>
   {{- end }}
 </div>
-{{- end }}
+{{- end }}{{ end }}
 {{- end }}
 
 <!-- 新着記事 -->
-<div class="section-header reveal">
+<div class="section-header">
   <span class="section-icon">📝</span>
-  <h2>新着記事</h2>
+  <h2>{{ if $first }}新着記事{{ else }}記事一覧（{{ $paginator.PageNumber }}ページ目）{{ end }}</h2>
+</div>
+<div class="home-grid">
+  {{- range $grid }}
+  <a href="{{ .Permalink }}" class="home-card">
+    <span class="home-card-thumb">{{ partial "home-thumb.html" (dict "page" . "width" 640) }}</span>
+    <span class="home-card-body">
+      <span class="home-chips">
+        {{- if lt (now.Sub .Date).Hours 168 }}<span class="home-chip is-new">NEW</span>{{ end }}
+        {{- with .Params.tags }}<span class="home-chip">{{ index . 0 }}</span>{{ end }}
+      </span>
+      <span class="home-card-title">{{ .Title }}</span>
+      <span class="home-card-desc">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 80 }}{{ end }}</span>
+      <span class="home-meta">📅 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> · ☕ {{ .ReadingTime }}分</span>
+    </span>
+  </a>
+  {{- end }}
 </div>
 
-{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $paginator := .Paginate $pages }}
-
-{{- range $index, $page := $paginator.Pages }}
-<article class="post-entry reveal">
-  <a href="{{ .Permalink }}">
-    <header class="entry-header">
-      <h2>
-        {{- if eq .Params.tags nil }}📄{{ else }}
-          {{- $tag := index .Params.tags 0 }}
-          {{- if eq $tag "Python" }}🐍
-          {{- else if eq $tag "Git" }}🌿
-          {{- else if eq $tag "CSS" }}🎨
-          {{- else if eq $tag "HTML" }}🎨
-          {{- else if eq $tag "VS Code" }}⚡
-          {{- else if eq $tag "初心者向け" }}🔰
-          {{- else if eq $tag "エラー解決" }}🛠️
-          {{- else if eq $tag "自動化" }}🤖
-          {{- else if eq $tag "開発環境" }}⚡
-          {{- else }}📄{{ end }}
-        {{- end }}
-        {{- .Title }}
-      </h2>
-    </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-    <section class="entry-content">
-      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-    </section>
-    {{- end }}
-    <footer class="entry-footer">
-      <span class="entry-meta">
-        📅 {{ .Date.Format "2006.01.02" }} · ☕ {{ .ReadingTime }}分で読める
-      </span>
-    </footer>
-  </a>
-</article>
+{{- if gt $paginator.TotalPages 1 }}
+<nav class="home-pager" aria-label="ページ送り">
+  {{- if $paginator.HasPrev }}<a class="home-pager-btn" href="{{ $paginator.Prev.URL }}" rel="prev">← 前へ</a>{{ else }}<span class="home-pager-btn is-off" aria-hidden="true">← 前へ</span>{{ end }}
+  <span class="home-pager-now">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+  {{- if $paginator.HasNext }}<a class="home-pager-btn" href="{{ $paginator.Next.URL }}" rel="next">次へ →</a>{{ else }}<span class="home-pager-btn is-off" aria-hidden="true">次へ →</span>{{ end }}
+</nav>
 {{- end }}
-
-{{- template "_internal/pagination.html" . }}
 
 {{- end }}{{/* end main */}}
