@@ -1,6 +1,7 @@
 ---
 title: "【Python】UnicodeDecodeError cp932の原因と直し方"
 date: 2026-10-13
+lastmod: 2026-10-19
 tags: ["Python", "初心者向け", "エラー解決"]
 description: "WindowsのPythonでCSVを開くと「'cp932' codec can't decode」が出て困っていませんか。文字コードの仕組みから、ファイル別の直し方、Python 3.15で変わる点まで実際に再現して解説します。"
 draft: false
@@ -45,6 +46,8 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8f in position 0: invalid 
 
 結論から言うと、原因は**ファイルを保存したときの文字コードと、Pythonが読むときの文字コードが食い違っている**ことです。`open()` に `encoding` を書いて、ファイルに合わせれば直ります。UTF-8なら `utf-8`、BOM付きなら `utf-8-sig`、Excelの普通のCSVなら `cp932` が基本です。
 
+> **2026年10月19日追記**：Python 3.15は10月9日に正式リリースされました。3.15ではWindowsでも既定の文字コードがUTF-8になったため、このエラーの出方が変わります（UTF-8のファイルは読めるようになり、Shift_JIS系のCSVは逆に `'utf-8' codec can't decode` になります）。3.15で変わったことと、上げる前に確かめたいことは、[Python 3.15でUTF-8が標準に！cp932エラーはもう出ない？](/posts/python-315-utf8-default/)にまとめました。この記事の直し方（`encoding` を書く）は、3.15でもそのまま使えます。
+
 {{< ad >}}
 
 ## 一言で説明すると
@@ -81,7 +84,7 @@ Pythonの `open()` は、`encoding` を省略すると既定の文字コード�
 
 2026年10月9日に公開されたPython 3.15では、`encoding` を省略したときの既定が、WindowsでもUTF-8になりました（PEP 686）。3.15の新機能の全体像は、[Python 3.15 beta1の新機能まとめ](/posts/python-315-beta1-features/)でも紹介しています。
 
-これで、UTF-8のファイルは `encoding` なしでも読めるようになります。ただし、**ExcelのShift_JIS系CSVを `encoding` なしで読んでいたコードは、逆に `'utf-8' codec can't decode` で止まる**ようになります。3.15に上げれば全部解決、ではない点に注意が必要です。
+これで、UTF-8のファイルは `encoding` なしでも読めるようになります。ただし、**ExcelのShift_JIS系CSVを `encoding` なしで読んでいたコードは、逆に `'utf-8' codec can't decode` で止まる**ようになります。3.15に上げれば全部解決、ではない点に注意が必要です。今すぐ3.15に上げるべきかの目安は、[Python 3.15でUTF-8が標準に！](/posts/python-315-utf8-default/)で解説しています。
 
 ![UnicodeDecodeErrorが起きる仕組み](images/point-why.png)
 
@@ -292,7 +295,7 @@ A: Macは既定がUTF-8なので、`'cp932'` のエラーは基本的に起き�
 ---
 ### あわせて読みたい
 - [【Python】try-exceptの書き方入門！エラー処理を基礎から解説](/posts/python-try-except-beginner/)
-- [【Python】3.15 beta1リリース！初心者が知っておくべき新機能5つ](/posts/python-315-beta1-features/)
+- [【Python 3.15】ついにUTF-8が標準に！cp932エラーはもう出ない？](/posts/python-315-utf8-default/)
 
 <!-- affiliate -->
 ## 関連リソース
