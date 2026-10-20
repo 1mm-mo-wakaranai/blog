@@ -1,0 +1,5 @@
+# 検索エンジンとAI検索（ChatGPT検索・Copilot・Perplexity・Claude など）からの巡回を許可する
+User-agent: *
+Allow: /
+
+Sitemap: https://www.wakaru-note.com/sitemap.xml

@@ -1,0 +1,8 @@
+{{- /* FAQPage 構造化データ。表示中の「よくある質問」(faq.html) と同じ front matter から作る */}}
+{{- if and .IsPage .Params.faq }}
+{{- $items := slice }}
+{{- range .Params.faq }}
+  {{- $items = $items | append (dict "@type" "Question" "name" .q "acceptedAnswer" (dict "@type" "Answer" "text" (.a | markdownify | plainify))) }}
+{{- end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items | jsonify | safeJS }}</script>
+{{- end }}

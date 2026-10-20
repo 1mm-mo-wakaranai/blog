@@ -1293,3 +1293,58 @@ body { font-family: "JaDash", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hi
   .post-header .post-title { font-size: 1.5rem; line-height: 1.45; }
   .chat-name { white-space: nowrap; font-size: .62rem; letter-spacing: 0; }
 }
+
+/* ---- 記事冒頭の「この記事の結論」・記事末尾の「よくある質問」（AIサーチ対策 2026/10/20〜） ---- */
+.answer-box {
+  margin: 20px 0 24px;
+  padding: 18px 22px;
+  border: 2px solid var(--accent);
+  border-left-width: 8px;
+  border-radius: 12px;
+  background: var(--accent-light);
+  color: var(--text-main);
+}
+
+.answer-box-title {
+  margin: 0 0 6px;
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+.answer-box-text {
+  margin: 0;
+  line-height: 1.85;
+}
+
+.answer-box-date {
+  margin: 8px 0 0;
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+.post-content .faq-box {
+  margin-top: 40px;
+}
+
+.post-content .faq-box dl {
+  margin: 0;
+}
+
+.post-content .faq-box dt {
+  margin-top: 18px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.post-content .faq-box dd {
+  margin: 6px 0 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  line-height: 1.85;
+}
+
+.post-content .faq-box dd p {
+  display: inline;
+  margin: 0;
+}

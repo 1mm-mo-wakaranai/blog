@@ -1,0 +1,15 @@
+{{- /*
+  AIサーチ（AI Overviews / ChatGPT検索 / Copilot など）対策の「結論ボックス」。
+  front matter の answer に、記事の問いへの答えを2〜4文で書くと記事冒頭に表示する。
+  検索AIは「問い→すぐ答え」の形の文を引用しやすいので、本文の前に置く。
+    answer: "結論の文。数字・日付・条件をはっきり書く"
+    checked: "2026-10-20"   # 任意。情報を確認した日（未指定なら公開日）
+*/}}
+{{- with .Params.answer }}
+<section class="answer-box" aria-labelledby="answer-box-title">
+  <p id="answer-box-title" class="answer-box-title"><span aria-hidden="true">💡</span> この記事の結論</p>
+  <p class="answer-box-text">{{ . | markdownify }}</p>
+  {{- $checked := $.Params.checked | default ($.Date.Format "2006-01-02") }}
+  <p class="answer-box-date">{{ (time.AsTime $checked).Format "2006年1月2日" }}時点の情報です</p>
+</section>
+{{- end }}

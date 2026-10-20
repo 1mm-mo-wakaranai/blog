@@ -1,0 +1,18 @@
+{{- /*
+  記事末尾の「よくある質問」。front matter の faq から作る。
+  同じデータから FAQPage の構造化データ（faq-schema.html）も出すので、表示とデータが必ず一致する。
+    faq:
+      - q: "質問（読者が実際に検索・AIに聞きそうな文）"
+        a: "答え（1〜3文。最初の文で答えを言い切る）"
+*/}}
+{{- with .Params.faq }}
+<section class="faq-box" aria-labelledby="faq-title">
+  <h2 id="faq-title">よくある質問</h2>
+  <dl>
+    {{- range . }}
+    <dt><span aria-hidden="true">Q.</span> {{ .q }}</dt>
+    <dd><span aria-hidden="true">A.</span> {{ .a | markdownify }}</dd>
+    {{- end }}
+  </dl>
+</section>
+{{- end }}
