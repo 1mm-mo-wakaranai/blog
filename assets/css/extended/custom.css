@@ -1348,3 +1348,9 @@ body { font-family: "JaDash", -apple-system, BlinkMacSystemFont, "Segoe UI", "Hi
   display: inline;
   margin: 0;
 }
+
+/* Safari・・ebKit・牙ｯｾ遲厄ｼ壹ユ繝ｼ繝槭・ .logo-switches 縺ｮ min-height: stretch 繧淡ebKit縺檎判髱｢縺・▲縺ｱ縺・∪縺ｧ莨ｸ縺ｰ縺励～n   繝倥ャ繝繝ｼ縺・逕ｻ髱｢莉･荳翫・遨ｺ逋ｽ縺ｫ縺ｪ縺｣縺ｦ縺・◆・・026/10/23縺ｫWebKit縺ｧ遒ｺ隱搾ｼ峨るｫ倥＆縺ｯ荳ｭ霄ｫ縺ｫ蜷医ｏ縺帙ｋ */
+.logo-switches,
+.logo-switches > * {
+  min-height: auto;
+}
