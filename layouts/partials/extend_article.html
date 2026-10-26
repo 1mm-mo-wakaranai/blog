@@ -1,17 +1,6 @@
 <!-- 記事冒頭広告（忍者アドマックス） -->
 {{ if .IsPage }}
 <div class="ad-top-article">
-  <!-- PC: 横長バナー -->
-  <div class="admax-pc">
-    <!-- admax -->
-    <script src="https://adm.shinobi.jp/s/6c1bc67ce22991a99411a10956f98069"></script>
-    <!-- admax -->
-  </div>
-  <!-- スマホ: 横長バナー -->
-  <div class="admax-sp">
-    <!-- admax -->
-    <script src="https://adm.shinobi.jp/s/d5da71a38d8c50774635958e7c6edd45"></script>
-    <!-- admax -->
-  </div>
+  {{ partial "admax.html" (dict "pc" "6c1bc67ce22991a99411a10956f98069" "sp" "d5da71a38d8c50774635958e7c6edd45") }}
 </div>
 {{ end }}

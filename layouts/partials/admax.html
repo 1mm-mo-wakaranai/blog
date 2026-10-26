@@ -1,0 +1,7 @@
+{{- /* AdMax枠。画面幅を見て、PC用(769px以上)かスマホ用(768px以下)のどちらか1つだけを読み込む。
+  以前は両方を読み込んでCSSで片方を隠していたため、見えない広告まで表示回数に数えられていた。
+  AdMaxのタグは document.write を使うので、HTMLの読み込み中にその場で書き出す必要がある。
+  引数: dict "pc" "<PC用タグID>" "sp" "<スマホ用タグID>"（どちらかは省略可。省略した側の画面では何も出さない） */ -}}
+<div class="admax-slot">
+<script>(function(){var sp=window.matchMedia("(max-width: 768px)").matches;var id=sp?"{{ .sp | default "" }}":"{{ .pc | default "" }}";if(id)document.write('<scr'+'ipt src="https://adm.shinobi.jp/s/'+id+'"></scr'+'ipt>');})();</script>
+</div>

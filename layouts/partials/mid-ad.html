@@ -1,0 +1,17 @@
+{{- /* 本文HTMLの中盤のH2の直前に広告を1枠差し込む（H2が4つ以上ある記事だけ）。
+  引数: dict "html" <本文HTML> "pc" "<PC用タグID>" "sp" "<スマホ用タグID>" */ -}}
+{{- $html := string .html }}
+{{- $parts := split $html "<h2" }}
+{{- $n := sub (len $parts) 1 }}
+{{- if ge $n 4 }}
+{{- $mid := div $n 2 }}
+{{- $ad := printf "<div class=\"ad-mid-article ad-mid-auto\">%s</div>" (partial "admax.html" (dict "pc" .pc "sp" .sp)) }}
+{{- $out := index $parts 0 }}
+{{- range $i, $p := after 1 $parts }}
+{{- if eq $i $mid }}{{ $out = print $out $ad }}{{ end }}
+{{- $out = print $out "<h2" $p }}
+{{- end }}
+{{- $out | safeHTML }}
+{{- else }}
+{{- $html | safeHTML }}
+{{- end }}

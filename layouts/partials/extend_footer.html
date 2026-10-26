@@ -40,49 +40,10 @@
 
 <!-- あわせて読みたいの下：広告（忍者アドマックス） -->
 <div class="ad-after-related">
-  <!-- PC: 横長バナー -->
-  <div class="admax-pc">
-    <!-- admax -->
-    <script src="https://adm.shinobi.jp/s/6c1bc67ce22991a99411a10956f98069"></script>
-    <!-- admax -->
-  </div>
-  <!-- スマホ: 巨大バナー -->
-  <div class="admax-sp">
-    <!-- admax -->
-    <script src="https://adm.shinobi.jp/s/e211b24947d4bfe74c47e3219e4ea5dd"></script>
-    <!-- admax -->
-  </div>
+  {{ partial "admax.html" (dict "pc" "6c1bc67ce22991a99411a10956f98069" "sp" "e211b24947d4bfe74c47e3219e4ea5dd") }}
 </div>
 {{ end }}
 {{ end }}
 
 {{ if .IsPage }}
-<!-- 記事中盤に広告をもう1枠自動挿入（H2の区切りに合わせる） -->
-<script>
-(function () {
-  var content = document.getElementById("post-content");
-  if (!content) return;
-  var h2s = content.querySelectorAll("h2");
-  if (h2s.length < 4) return; // 見出しが少ない記事は追加しない
-  var target = h2s[Math.floor(h2s.length / 2)]; // 中盤のH2の直前
-  if (!target) return;
-
-  // 広告コンテナを作成（PC=レクタングル / スマホ=大き目）
-  var wrap = document.createElement("div");
-  wrap.className = "ad-mid-article ad-mid-auto";
-
-  function makeAdmax(cls, src) {
-    var box = document.createElement("div");
-    box.className = cls;
-    var s = document.createElement("script");
-    s.src = src;
-    box.appendChild(s);
-    return box;
-  }
-  wrap.appendChild(makeAdmax("admax-pc", "https://adm.shinobi.jp/s/e302ba1409c01d850122cd181e3e974d"));
-  wrap.appendChild(makeAdmax("admax-sp", "https://adm.shinobi.jp/s/811650540f1c9ef956f45e2a3b392430"));
-
-  target.parentNode.insertBefore(wrap, target);
-})();
-</script>
 {{ end }}
